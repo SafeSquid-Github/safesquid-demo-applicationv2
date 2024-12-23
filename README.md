@@ -1,7 +1,3 @@
-Here’s a `README.md` file template for your setup script. This document explains what the script does and provides clear instructions for its installation and usage.
-
----
-
 # Setup Guide for SSL Certificates, Apache, and Bind9 DNS
 
 ## Description
