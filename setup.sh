@@ -22,7 +22,7 @@ GET_HOSTS ()
         APP_NAME=$(echo "$line" | cut -d':' -f1).com
         APP_PORT=$(echo "$line" | cut -d':' -f2)
         HOSTS["$APP_NAME"]="$APP_PORT"
-    done < <(node -e 'console.log(JSON.stringify(require("/var/www/demo/ecosystem.config.js")))' | jq -r '.apps[] | "\(.name):\(.env_development.PORT // .env_production.PORT)"')
+    done < <(node -e 'console.log(JSON.stringify(require("./ecosystem.config.js")))' | jq -r '.apps[] | "\(.name):\(.env_development.PORT // .env_production.PORT)"')
 }
 
 # Function to Install Dependencies
@@ -32,15 +32,11 @@ INSTALL_DEPENDENCIES ()
     
     # Update package list and install dependencies
     apt-get update
-    apt-get install -y bind9 bind9utils bind9-doc monit sqlite3 apache2 openssl nodejs npm jq  # Added jq for handling JSON
-
+    apt-get install -y bind9 bind9utils bind9-doc monit sqlite3 apache2 openssl nodejs npm jq
     npm install -g pm2
 
     # Enable Apache SSL and headers modules
     a2enmod proxy proxy_http rewrite ssl proxy_balancer php8.3 headers
-
-    pm2 start /var/www/demo/ecosystem.config.js --env development --watch
-    pm2 save
 
     echo "Dependencies installed successfully."
 }
@@ -290,6 +286,9 @@ MAIN ()
     GENERATE_CERTIFICATES_FOR_HOSTNAMES
     GENERATE_APACHE_CONF
     SETUP_BIND9_DNS
+
+    pm2 start ./ecosystem.config.js --env development --watch
+    pm2 save
 
     echo "Setup completed successfully."
 }
