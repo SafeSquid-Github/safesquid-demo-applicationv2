@@ -1,0 +1,820 @@
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Cannot find module 'sqlite3'
+Require stack:
+- /var/www/demo/session_hijacking/bankease/app.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/app.js:6:17)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/var/www/demo/session_hijacking/bankease/app.js' ]
+}
+Error: Could not locate the bindings file. Tried:
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Debug/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Release/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Debug/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Debug/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Release/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Release/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/default/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/compiled/18.19.1/linux/x64/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/release/install-root/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/debug/install-root/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/default/install-root/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/binding/node-v109-linux-x64/node_sqlite3.node
+    at bindings (/var/www/demo/session_hijacking/bankease/node_modules/bindings/bindings.js:126:9)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/sqlite3-binding.js:1:37)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Module.require (node:internal/modules/cjs/loader:1225:19)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/sqlite3.js:2:17) {
+  tries: [
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Debug/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Release/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Debug/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Debug/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Release/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Release/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/default/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/compiled/18.19.1/linux/x64/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/release/install-root/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/debug/install-root/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/default/install-root/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/binding/node-v109-linux-x64/node_sqlite3.node'
+  ]
+}
+Error: Could not locate the bindings file. Tried:
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Debug/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Release/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Debug/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Debug/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Release/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Release/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/default/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/compiled/18.19.1/linux/x64/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/release/install-root/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/debug/install-root/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/default/install-root/node_sqlite3.node
+ → /var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/binding/node-v109-linux-x64/node_sqlite3.node
+    at bindings (/var/www/demo/session_hijacking/bankease/node_modules/bindings/bindings.js:126:9)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/sqlite3-binding.js:1:37)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Module.require (node:internal/modules/cjs/loader:1225:19)
+    at Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/sqlite3.js:2:17) {
+  tries: [
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Debug/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/Release/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Debug/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Debug/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/out/Release/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/Release/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/build/default/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/compiled/18.19.1/linux/x64/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/release/install-root/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/debug/install-root/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/addon-build/default/install-root/node_sqlite3.node',
+    '/var/www/demo/session_hijacking/bankease/node_modules/sqlite3/lib/binding/node-v109-linux-x64/node_sqlite3.node'
+  ]
+}
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = '/var/db/demo/bankease.db';
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = ;
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+/var/www/demo/session_hijacking/bankease/app.js:13
+const dbPath = ;
+      ^
+
+SyntaxError: Identifier 'dbPath' has already been declared
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1274:20)
+    at Module._compile (node:internal/modules/cjs/loader:1320:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)

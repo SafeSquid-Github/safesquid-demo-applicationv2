@@ -1,0 +1,29 @@
+Server is running on http://localhost:3002
+Connected to SQLite database.
+Table "credentials" is ready.
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET / HTTP/1.1" 200 2366 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET /css/bootstrap.v5.min.css HTTP/1.1" 200 153111 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET /css/index.css HTTP/1.1" 200 64 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET /js/index.js HTTP/1.1" 200 1539 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET /images/svgs/infoman-logo.svg HTTP/1.1" 200 1866 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET /js/bootstrap.v5.bundle.min.js HTTP/1.1" 200 80821 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:23 +0000] "GET /fetch-credentials HTTP/1.1" 200 2 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET / HTTP/1.1" 200 2366 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET /css/bootstrap.v5.min.css HTTP/1.1" 200 153111 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET /js/bootstrap.v5.bundle.min.js HTTP/1.1" 200 80821 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET /css/index.css HTTP/1.1" 200 64 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET /images/svgs/infoman-logo.svg HTTP/1.1" 200 1866 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET /js/index.js HTTP/1.1" 200 1539 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+::1 - - [21/Dec/2024:12:28:44 +0000] "GET /fetch-credentials HTTP/1.1" 200 124 "https://infoman.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0"
+Server is running on http://localhost:3002
+Connected to SQLite database.
+Table "credentials" is ready.
+Server is running on http://localhost:3002
+Connected to SQLite database.
+Table "credentials" is ready.
+Server is running on http://localhost:3002
+Connected to SQLite database.
+Table "credentials" is ready.
+Server is running on http://localhost:3002
+Connected to SQLite database.
+Table "credentials" is ready.

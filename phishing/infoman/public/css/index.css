@@ -1,0 +1,7 @@
+main {
+	padding-top: 100px;
+}
+
+td:first-child {
+	width: 200px;
+}

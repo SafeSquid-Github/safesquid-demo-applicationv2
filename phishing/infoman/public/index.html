@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="shortcut icon" type="image/jpg" href="images/svgs/infoman-logo.svg" />
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.v5.min.css" />
+	<link rel="stylesheet" href="css/index.css" /> 
+
+	<!-- JS -->
+	<script defer src="js/bootstrap.v5.bundle.min.js"></script>
+	<script defer src="js/index.js"></script>
+
+	<title>Hacked Credentials: InfoMan App</title>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-fixed-top fixed-top navbar-expand-lg navbar-dark bg-light shadow">
+			<div class="container d-flex justify-content-between align-items-center">
+				<!-- Logo & Company Name -->
+				<a class="navbar-brand" href="/">
+					<div class="d-flex justify-content-start align-items-center">
+						<img src="images/svgs/infoman-logo.svg" alt="Logo" width="48" height="48">
+						<h3 class="m-2" style="color: black;">InfoMan</h3>
+					</div>
+				</a>
+
+				<!-- Clear Button -->
+				<form id="clearForm" action="/clear-credentials" method="POST" class="d-inline">
+					<button type="button" class="btn btn-danger" id="clearButton">
+						Clear All Credentials
+					</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<div class="main-screen">
+			<div class="container">
+				<div class="main-screen-inner">
+					<div class="row">
+						<div class="col-2"></div>
+						<div class="col-8">
+							<div class="login-data-holder">
+							</div>
+						</div>
+						<div class="col-2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer></footer>
+
+	<script>
+		// JavaScript to handle form submission without page reload
+		document.getElementById('clearButton').addEventListener('click', function () {
+			// Create a new FormData object
+			const formData = new FormData(document.getElementById('clearForm'));
+
+			// Send an AJAX request to clear_credentials.php
+			fetch('/clear-credentials', {
+				method: 'POST',
+				body: formData
+			})
+			.then(response => {
+				if (response.ok) {
+					// Refresh the page after successful submission
+					location.reload();
+				} else {
+					alert('Failed to clear credentials.');
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('An error occurred while clearing credentials.');
+			});
+		});
+	</script>
+</body>
+
+</html>

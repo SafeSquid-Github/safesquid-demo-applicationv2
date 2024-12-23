@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T-DNS-S</title>
+    <link rel="icon" type="image/x-icon" href="images/dns.png">
+    <!-- Include Font Awesome for upload icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 img {
+            width: 50px;  /* Adjust logo size */
+            margin-right: 15px;  /* Space between logo and title */
+        }
+
+        .Enter-data, .Upload-data {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+
+        button:active {
+            transform: scale(0.98); /* Slight shrink when button is clicked */
+        }
+
+        /* Hide the default file input */
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px;
+            background-color: #2ecc71;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .upload-btn i {
+            margin-right: 10px;
+        }
+
+        .upload-btn:hover {
+            background-color: #27ae60;
+            transform: scale(1.05);
+        }
+
+        .upload-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <!-- Logo Image -->
+        <img src="https://workablehr.s3.amazonaws.com/uploads/account/open_graph_logo/500883/social?1627479912031" alt="SafeSquid Logo">
+        Test Your DNS Security
+    </h1>
+
+    <!-- Removed Enter DNS Data form and submit button -->
+
+    <div class="Upload-data">
+        <form action="" id="get_data_file">
+            <!-- Custom styled upload button with Font Awesome icon -->
+            <label for="usr_file_data" class="upload-btn">
+                <i class="fas fa-cloud-upload-alt"></i> Upload File
+            </label>
+            <input type="file" id="usr_file_data" name="filename">
+        </form>
+    </div>
+
+    <script type="text/javascript" src="/js/base32.js"></script>
+    <script type="text/javascript" src="/js/dns_xhrRequest.js"></script>
+</body>
+</html>

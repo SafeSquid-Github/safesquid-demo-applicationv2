@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Cyber Awareness News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .news-section {
+            margin-top: 30px;
+        }
+        .news-article {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        .news-article:last-child {
+            border-bottom: none;
+        }
+        .comment-section {
+            margin-top: 30px;
+        }
+        .comment {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            font-size: 1rem;
+        }
+        .comment:last-child {
+            border-bottom: none;
+        }
+        .comment-form {
+            margin-top: 20px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            resize: none;
+        }
+        .comment-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .comment-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // Function to get comments from localStorage
+        function getCommentsFromStorage() {
+            const storedComments = localStorage.getItem('comments');
+            return storedComments ? JSON.parse(storedComments) : [];
+        }
+
+        // Function to save comments to localStorage
+        function saveCommentsToStorage(comments) {
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // JavaScript to handle adding comments (vulnerable to stored XSS)
+        let comments = getCommentsFromStorage();
+
+        function addComment() {
+            const commentText = document.getElementById('comment-input').value;
+            const name = document.getElementById('name-input').value;
+
+            if (commentText && name) {
+                // Store the comment as is, without sanitizing input (Vulnerable to XSS)
+                comments.push({ name, commentText });
+                saveCommentsToStorage(comments);  // Save comments to localStorage
+                renderComments();
+            } else {
+                alert('Please fill out both fields');
+            }
+        }
+
+        function renderComments() {
+            const commentsSection = document.getElementById('comments');
+            commentsSection.innerHTML = ''; // Clear the comments section before rendering
+
+            // Render all the comments dynamically
+            comments.forEach(comment => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.innerHTML = `<strong>${comment.name}</strong>: ${comment.commentText}`; // XSS vulnerability here
+                commentsSection.appendChild(commentDiv);
+            });
+        }
+
+        // Render comments on page load
+        window.onload = function() {
+            renderComments();
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Latest Cyber Awareness News</h1>
+        <p>Stay updated with the latest trends and threats in the cybersecurity world</p>
+    </header>
+    <main>
+        <section class="news-section">
+            <h2>Top Stories</h2>
+
+            <!-- News Article 1 -->
+            <div class="news-article">
+                <h3>New Ransomware Variant Targets Critical Infrastructure</h3>
+                <p>Security experts are warning about a new ransomware variant that has been discovered targeting critical infrastructure. The malware is designed to exploit known vulnerabilities in outdated systems, making it an easy target for cybercriminals. Experts are advising organizations to immediately update their security software and patch vulnerable systems.</p>
+            </div>
+
+            <!-- News Article 2 -->
+            <div class="news-article">
+                <h3>Phishing Campaigns on the Rise in 2024</h3>
+                <p>Phishing attacks have seen a dramatic increase in 2024, with cybercriminals using more sophisticated techniques to deceive users. The latest campaigns use convincing fake login pages to steal sensitive credentials. Users are urged to remain vigilant and always verify the authenticity of email sources before clicking on links.</p>
+            </div>
+
+            <!-- News Article 3 -->
+            <div class="news-article">
+                <h3>Cybersecurity Tips for Remote Workers</h3>
+                <p>With more employees working remotely than ever before, ensuring secure work-from-home practices has become paramount. Experts suggest using multi-factor authentication (MFA), VPNs, and regular software updates to protect against remote work-related cyber threats. Cyber hygiene is more important now than ever.</p>
+            </div>
+        </section>
+
+        <section class="comment-section">
+            <h2>Leave a Comment</h2>
+            <div id="comments">
+                <!-- Comments will be rendered here dynamically -->
+            </div>
+            <div class="comment-form">
+                <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+                <input id="name-input" type="text" placeholder="Your name" />
+                <button onclick="addComment()">Post Comment</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

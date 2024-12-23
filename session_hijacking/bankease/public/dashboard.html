@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BankEase | Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+  </head>
+  <body class="bg-gray-200">
+    <header
+      class="mt-10 px-14 mb-7 max-w-screen-lg mx-auto flex justify-between"
+    >
+      <!-- logo -->
+      <div class="flex items-center gap-2 text-green-700">
+        <img src="/assets/logo.svg" alt="BankEase Logo" class="w-10" />
+        <h1 class="text-5xl font-bold">BankEase</h1>
+      </div>
+
+      <!-- user profile -->
+      <a
+        href="/profile"
+        class="flex gap-3 items-center hover:bg-gray-300 hover:shadow-sm py-2 px-3 rounded-md"
+      >
+        <span class="font-medium">View Profile</span>
+        <img
+          src="/assets/danny-mills.jpg"
+          alt="Danny Mills"
+          class="w-12 rounded-full"
+        />
+      </a>
+    </header>
+
+    <main class="px-10 max-w-screen-lg mx-auto">
+      <!-- Account Balance -->
+      <div class="bg-white p-6 border border-gray-300 rounded-lg">
+        <h2 class="text-3xl font-medium">Account Balance</h2>
+        <p class="text-gray-600 mt-1">Your current balance</p>
+        <p class="text-5xl font-bold my-7">$5280.42</p>
+        <div
+          class="flex flex-col items-start gap-3 sm:flex-row justify-between"
+        >
+          <button
+            class="flex items-center gap-2 border border-gray-400 hover:bg-gray-100 rounded-md px-4 py-2"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.20308 1.04312C1.00481 0.954998 0.772341 1.0048 0.627577 1.16641C0.482813 1.32802 0.458794 1.56455 0.568117 1.75196L3.92115 7.50002L0.568117 13.2481C0.458794 13.4355 0.482813 13.672 0.627577 13.8336C0.772341 13.9952 1.00481 14.045 1.20308 13.9569L14.7031 7.95693C14.8836 7.87668 15 7.69762 15 7.50002C15 7.30243 14.8836 7.12337 14.7031 7.04312L1.20308 1.04312ZM4.84553 7.10002L2.21234 2.586L13.2689 7.50002L2.21234 12.414L4.84552 7.90002H9C9.22092 7.90002 9.4 7.72094 9.4 7.50002C9.4 7.27911 9.22092 7.10002 9 7.10002H4.84553Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span>Send</span>
+          </button>
+          <button
+            class="flex items-center gap-2 border border-gray-400 hover:bg-gray-100 rounded-md px-4 py-2"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM7.50003 4C7.77617 4 8.00003 4.22386 8.00003 4.5V7H10.5C10.7762 7 11 7.22386 11 7.5C11 7.77614 10.7762 8 10.5 8H8.00003V10.5C8.00003 10.7761 7.77617 11 7.50003 11C7.22389 11 7.00003 10.7761 7.00003 10.5V8H4.50003C4.22389 8 4.00003 7.77614 4.00003 7.5C4.00003 7.22386 4.22389 7 4.50003 7H7.00003V4.5C7.00003 4.22386 7.22389 4 7.50003 4Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span>Top Up</span>
+          </button>
+          <button
+            class="flex items-center gap-2 border border-gray-400 hover:bg-gray-100 rounded-md px-4 py-2"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 3.5C2 3.22386 2.22386 3 2.5 3H12.5C12.7761 3 13 3.22386 13 3.5V9.5C13 9.77614 12.7761 10 12.5 10H2.5C2.22386 10 2 9.77614 2 9.5V3.5ZM2 10.9146C1.4174 10.7087 1 10.1531 1 9.5V3.5C1 2.67157 1.67157 2 2.5 2H12.5C13.3284 2 14 2.67157 14 3.5V9.5C14 10.1531 13.5826 10.7087 13 10.9146V11.5C13 12.3284 12.3284 13 11.5 13H3.5C2.67157 13 2 12.3284 2 11.5V10.9146ZM12 11V11.5C12 11.7761 11.7761 12 11.5 12H3.5C3.22386 12 3 11.7761 3 11.5V11H12Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span>Card</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Recent Transactions -->
+      <div class="bg-white p-6 border border-gray-300 rounded-lg mt-8 mb-10">
+        <h2 class="text-3xl font-medium">Recent Transactions</h2>
+        <p class="text-gray-600 mt-1">Your latest account activity</p>
+
+        <ul class="mt-7 space-y-5">
+          <li class="flex justify-between">
+            <div class="flex flex-col">
+              <span class="font-medium text-lg">Grocery Store</span>
+              <span class="text-gray-600">2024-6-15</span>
+            </div>
+            <div class="text-red-600 flex items-center gap-1 font-medium">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>$75.50</span>
+            </div>
+          </li>
+          <li class="flex justify-between">
+            <div class="flex flex-col">
+              <span class="font-medium text-lg">Salary Deposit</span>
+              <span class="text-gray-600">2024-6-1</span>
+            </div>
+            <div class="text-green-600 flex items-center gap-1 font-medium">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.14645 2.14645C7.34171 1.95118 7.65829 1.95118 7.85355 2.14645L11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355C11.6583 7.04882 11.3417 7.04882 11.1464 6.85355L8 3.70711L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 3.70711L3.85355 6.85355C3.65829 7.04882 3.34171 7.04882 3.14645 6.85355C2.95118 6.65829 2.95118 6.34171 3.14645 6.14645L7.14645 2.14645Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>$3000.00</span>
+            </div>
+          </li>
+          <li class="flex justify-between">
+            <div class="flex flex-col">
+              <span class="font-medium text-lg">Electricity Bill</span>
+              <span class="text-gray-600">2024-5-28</span>
+            </div>
+            <div class="text-red-600 flex items-center gap-1 font-medium">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>$120.30</span>
+            </div>
+          </li>
+          <li class="flex justify-between">
+            <div class="flex flex-col">
+              <span class="font-medium text-lg">Online Shopping</span>
+              <span class="text-gray-600">2024-5-27</span>
+            </div>
+            <div class="text-red-600 flex items-center gap-1 font-medium">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span>$55.99</span>
+            </div>
+          </li>
+        </ul>
+
+        <button
+          class="w-full mt-10 p-2 font-medium border border-gray-500 rounded-md hover:bg-gray-100"
+        >
+          View All Transactions
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

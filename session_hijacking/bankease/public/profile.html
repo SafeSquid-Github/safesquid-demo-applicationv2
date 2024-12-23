@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BankEase | Profile</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+  </head>
+  <body class="bg-gray-200">
+    <header
+      class="mt-10 px-14 mb-7 max-w-screen-lg mx-auto flex justify-between"
+    >
+      <!-- logo -->
+      <div class="flex items-center gap-2 text-green-700">
+        <img src="/assets/logo.svg" alt="BankEase Logo" class="w-10" />
+        <h1 class="text-5xl font-bold">BankEase</h1>
+      </div>
+
+      <!-- home link -->
+      <a
+        href="/"
+        class="flex gap-3 items-center hover:bg-gray-300 hover:shadow-sm py-2 px-3 rounded-md font-medium"
+      >
+        Back Home
+      </a>
+    </header>
+
+    <main class="px-10 max-w-screen-lg mx-auto">
+      <div class="bg-white p-6 border border-gray-300 rounded-lg">
+        <div class="flex items-center gap-5">
+          <img
+            class="w-20 rounded-full"
+            src="/assets/danny-mills.jpg"
+            id="profile-image"
+          />
+          <div class="flex items-start flex-col gap-1">
+            <span id="header-name" class="text-2xl font-bold"></span>
+            <span class="bg-slate-700 text-white rounded-xl px-3"
+              >Premium Acccount</span
+            >
+          </div>
+        </div>
+
+        <form class="mt-7" method="POST" action="/profile">
+          <label class="font-medium mb-2 inline-block" for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="w-full py-2 px-3 border border-gray-300 rounded-md mb-5 disabled:cursor-not-allowed"
+            disabled
+          />
+
+          <label class="font-medium mb-2 inline-block" for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full py-2 px-3 border border-gray-300 rounded-md mb-5 disabled:cursor-not-allowed"
+            disabled
+          />
+
+          <label class="font-medium mb-2 inline-block" for="email">
+            Mobile Number
+          </label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            class="w-full py-2 px-3 border border-gray-300 rounded-md mb-5 disabled:cursor-not-allowed"
+            disabled
+          />
+
+          <span class="font-medium mb-2 inline-block">Account Number</span>
+          <span class="block text-gray-400 mb-7">**** **** **** 1234</span>
+
+          <button
+            class="bg-black text-white hover:bg-slate-900 rounded-md py-2 px-4"
+            id="Edit"
+          >
+            Edit
+          </button>
+
+          <button
+            class="bg-black text-white hover:bg-slate-900 rounded-md py-2 px-4 hidden"
+            type="submit"
+          >
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script>
+    // on load, fill in details from /profile endpoint
+    window.onload = async () => {
+      const response = await fetch('/user-profile');
+      const data = await response.json();
+
+      const form = document.querySelector('form');
+      const headerName = document.getElementById('header-name');
+      const profileImage = document.getElementById('profile-image');
+
+      form['name'].value = data.name;
+      form['email'].value = data.email;
+      form['mobile'].value = data.mobile;
+
+      headerName.textContent = data.name;
+      profileImage.alt = data.name;
+    };
+
+    // on clicking edit, prevent default and enable the form fields, show save changes button
+    const editButton = document.getElementById('Edit');
+
+    editButton.onclick = e => {
+      e.preventDefault();
+
+      const form = e.target.parentElement;
+      const formFields = form.querySelectorAll('input');
+
+      formFields.forEach(field => {
+        field.disabled = false;
+      });
+
+      e.target.classList.add('hidden');
+      e.target.nextElementSibling.classList.remove('hidden');
+    };
+  </script>
+</html>
