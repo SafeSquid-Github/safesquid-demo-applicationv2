@@ -15,12 +15,12 @@ module.exports = {
             env_development: { // Explicitly define the `development` environment
                 NODE_ENV: "development",
                 PORT: 3001,
-                DB: '/var/db/demo/phish.db',
+                DB: './databases/phish.db',
             },
             env_production: {
                 NODE_ENV: "production",
                 PORT: 3001,
-                DB: '/var/db/demo/phish.db',
+                DB: './databases/phish.db',
             },
             pre_start: "mkdir -p logs && npm install",
         },
@@ -39,12 +39,12 @@ module.exports = {
             env_development: { // Explicitly define the `development` environment
                 NODE_ENV: "development",
                 PORT: 3002,
-                DB: '/var/db/demo/phish.db',
+                DB: './databases/phish.db',
             },
             env_production: {
                 NODE_ENV: "production",
                 PORT: 3002,
-                DB: '/var/db/demo/phish.db',
+                DB: './databases/phish.db',
             },
             pre_start: "mkdir -p logs && npm install",
         },
@@ -63,12 +63,12 @@ module.exports = {
             env_development: { // Explicitly define the `development` environment
                 NODE_ENV: "development",
                 PORT: 3003,
-                DB: '/var/db/demo/bankease.db',
+                DB: './databases/bankease.db',
             },
             env_production: {
                 NODE_ENV: "production",
                 PORT: 3003,
-                DB: '/var/db/demo/bankease.db',
+                DB: './databases/bankease.db',
             },
             pre_start: "mkdir -p logs && npm install",
         },
