@@ -19,10 +19,10 @@ GET_HOSTS ()
 {
     # Run the command to get names and ports and store them in the associative array
     while IFS= read -r line; do
-        APP_NAME=$(echo "$line" | cut -d':' -f1).com
+        APP_NAME=$(echo "$line" | cut -d':' -f1)
         APP_PORT=$(echo "$line" | cut -d':' -f2)
         HOSTS["$APP_NAME"]="$APP_PORT"
-    done < <(node -e 'console.log(JSON.stringify(require("./ecosystem.config.js")))' | jq -r '.apps[] | "\(.name):\(.env_development.PORT // .env_production.PORT)"')
+    done < <(node -e 'console.log(JSON.stringify(require("./ecosystem.config.js")))' | jq -r '.apps[] | "\(.env_development.DOMAIN):\(.env_development.PORT // .env_production.PORT)"')
 }
 
 # Function to Install Dependencies
