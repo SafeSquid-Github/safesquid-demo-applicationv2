@@ -124,13 +124,18 @@ GENERATE_CERTIFICATES_FOR_HOSTNAMES ()
 
         echo "Generating SSL certificate and private key for ${HOSTNAME} and *.${HOSTNAME}"
 
-        # Generate CSR and private key
-        openssl req -new -newkey rsa:4096 -keyout "$KEY_FILE" -out "${CERT_FILE}.csr" -nodes -subj "/CN=${HOSTNAME}" -addext "subjectAltName = DNS:${HOSTNAME},DNS:*.${HOSTNAME}"
+        # Step 1: Generate CSR and private key
+        openssl req -new -newkey rsa:4096 -keyout "$KEY_FILE" -out "${CERT_FILE}.csr" -nodes \
+            -subj "/CN=${HOSTNAME}" \
+            -addext "subjectAltName = DNS:${HOSTNAME},DNS:*.${HOSTNAME}"
 
-        # Sign the CSR using the Root CA
-        openssl req -x509 -in "${CERT_FILE}.csr" -CA "$ROOT_CA_CERT" -CAkey "$ROOT_CA_KEY" -CAcreateserial -out "$CERT_FILE" -days "$DAYS_VALID" -sha256 -copy_extensions copy
+        # Step 2: Sign the CSR using the Root CA and include necessary extensions
+        openssl x509 -req -in "${CERT_FILE}.csr" -CA "$ROOT_CA_CERT" -CAkey "$ROOT_CA_KEY" \
+            -CAcreateserial -out "$CERT_FILE.crt" -days "$DAYS_VALID" -sha256 \
+            -addext "basicConstraints = CA:FALSE" \
+            -addext "subjectAltName = DNS:${HOSTNAME},DNS:*.${HOSTNAME}"
 
-        # Clean up CSR
+        # Step 3: Clean up CSR
         rm -f "${CERT_FILE}.csr"
 
         [[ -f "$CERT_FILE" && -f "$KEY_FILE" ]] && echo "Certificate for $HOSTNAME generated successfully."
