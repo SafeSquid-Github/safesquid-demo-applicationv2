@@ -28,7 +28,7 @@ GET_HOSTS ()
 # Function to Install Dependencies
 INSTALL_DEPENDENCIES () 
 {
-    echo "Installing dependencies..."
+    echo "Installing dependencies"
     
     # Update package list and install dependencies
     apt-get update
@@ -44,7 +44,7 @@ INSTALL_DEPENDENCIES ()
 # Function to Create Folders and Set Permissions
 CREATE_FOLDERS_AND_PERMISSIONS () 
 {
-    echo "Creating necessary directories and setting permissions..."
+    echo "Creating necessary directories and setting permissions"
 
     # Create the directory for the SQLite database if it doesn't exist
     mkdir -p /var/db/demo
@@ -69,7 +69,7 @@ CREATE_FOLDERS_AND_PERMISSIONS ()
 # Function to Create Root Certificate Authority (Root CA)
 CREATE_ROOT_CA () 
 {
-    echo "Creating Root Certificate Authority (Root CA)..."
+    echo "Creating Root Certificate Authority (Root CA)"
 
     # Create a directory for the Root CA if it doesn't exist
     [[ ! -d ${ROOT_CA_DIR} ]] && mkdir -p $ROOT_CA_DIR
@@ -143,9 +143,15 @@ GENERATE_CERTIFICATES_FOR_HOSTNAMES ()
 # Function to generate Apache configuration
 GENERATE_APACHE_CONF () 
 {
-    local VHOST_CONF="/etc/apache2/sites-available/${HOSTNAME}.conf"
-    cat <<EOF > "$VHOST_CONF"
-# Auto-generated Apache configuration
+    for HOSTNAME in "${!HOSTS[@]}"; do
+        local port=${HOSTS[$HOSTNAME]}
+        local ssl_cert="/etc/ssl/certs/${HOSTNAME}.pem"
+        local ssl_key="/etc/ssl/private/${HOSTNAME}.key"
+        local error_log="${APACHE_LOG_DIR}/${HOSTNAME}_error.log"
+        local access_log="${APACHE_LOG_DIR}/${HOSTNAME}_access.log"
+        local VHOST_CONF="/etc/apache2/sites-available/${HOSTNAME}.conf"
+        cat <<EOF > "$VHOST_CONF"
+# Auto-generated Apache configuration for $HOSTNAME
 
 # Redirect HTTP to HTTPS for all HOSTS
 <VirtualHost *:80>
@@ -154,17 +160,6 @@ GENERATE_APACHE_CONF ()
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </VirtualHost>
 
-EOF
-
-    for HOSTNAME in "${!HOSTS[@]}"; do
-        local port=${HOSTS[$HOSTNAME]}
-        local ssl_cert="/etc/ssl/certs/${HOSTNAME}.pem"
-        local ssl_key="/etc/ssl/private/${HOSTNAME}.key"
-        local error_log="\${APACHE_LOG_DIR}/${HOSTNAME}_error.log"
-        local access_log="\${APACHE_LOG_DIR}/${HOSTNAME}_access.log"
-
-        cat <<EOF >> "$VHOST_CONF"
-# VirtualHost for $HOSTNAME
 <VirtualHost *:443>
     ServerName $HOSTNAME
     SSLEngine on
@@ -187,7 +182,7 @@ EOF
     echo "Apache configuration generated in $VHOST_CONF"
 
 	# Restart Apache to apply the changes
-	echo "Restarting Apache..."
+	echo "Restarting Apache"
 	systemctl restart apache2 && echo "Apache restarted successfully."
 }
 
@@ -211,7 +206,7 @@ SETUP_BIND9_DNS ()
 
     # Loop through each hostname and create its zone file
     for HOSTNAME in "${!HOSTS[@]}"; do
-        echo "Creating zone file for $HOSTNAME..."
+        echo "Creating zone file for $HOSTNAME"
 
         ZONE_FILE="$BIND9_ZONE_DIR/db.$HOSTNAME"
         cat << EOF > "$ZONE_FILE"
@@ -240,7 +235,7 @@ EOF
 
         # Check if zone already exists in named.conf.local
         if ! grep -q "zone \"$HOSTNAME\"" /etc/bind/named.conf.local; then
-            echo "Adding zone for $HOSTNAME to Bind9 configuration..."
+            echo "Adding zone for $HOSTNAME to Bind9 configuration"
             cat << EOF >> /etc/bind/named.conf.local
 zone "$HOSTNAME" {
     type master;
@@ -254,7 +249,7 @@ EOF
 
     # Add logging configuration if not already present
     if ! grep -q 'channel query_log' /etc/bind/named.conf.local; then
-        echo "Adding logging configuration to Bind9..."
+        echo "Adding logging configuration to Bind9"
         cat << EOF >> /etc/bind/named.conf.local
 logging {
     channel query_log {
