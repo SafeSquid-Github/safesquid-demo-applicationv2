@@ -17,6 +17,7 @@ module.exports = {
                 PORT: 3001,
                 DB: '../../databases/phish.db',
                 DOMAIN: 'iciciibank.com',
+                SUBDOMAIN: 'infinity',
             },
             env_production: {
                 NODE_ENV: "production",
@@ -144,6 +145,7 @@ module.exports = {
                 TYPE: 'eicar',
                 FRAGMENTS_COUNT: 7,
                 DOMAIN: 'xn--microsof-epb.com',
+                SUBDOMAIN: 'copilot',
             },
             env_production: {
                 NODE_ENV: "production",
