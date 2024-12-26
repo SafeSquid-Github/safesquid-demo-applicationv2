@@ -2,13 +2,13 @@
 
 # Define Variables
 # HOSTS=("iciciibank.com" "infoman.com" "bankease.com" "technews.com" "swgaudit.com" "xn--microsof-epb.com" "businessnews.com")
-CERTS_DIR="/etc/ssl/certs"
-KEYS_DIR="/etc/ssl/private"
+CERTS_DIR="/etc/apache2/ssl/certs"
+KEYS_DIR="/etc/apache2/ssl/private"
 DAYS_VALID=3650
 BIND9_ZONE_DIR="/etc/bind/zones"
 BIND9_LOG_DIR="/var/log/named"
 BIND9_QUERY_LOG="$BIND9_LOG_DIR/query.log"
-ROOT_CA_DIR="/etc/ssl/rootca"
+ROOT_CA_DIR="/etc/apache2/ssl/rootca"
 ROOT_CA_KEY="${ROOT_CA_DIR}/rootCA.key"
 ROOT_CA_CERT="${ROOT_CA_DIR}/rootCA.pem"
 
@@ -46,8 +46,10 @@ CREATE_FOLDERS_AND_PERMISSIONS ()
 {
     echo "Creating necessary directories and setting permissions"
 
-    # Create the directory for the SQLite database if it doesn't exist
-    mkdir -p /var/db/demo
+    # Create SSL Dir
+    [ ! -d ${CERTS_DIR} ] && mkdir -p ${CERTS_DIR}
+    [ ! -d ${KEYS_DIR} ] && mkdir -p ${KEYS_DIR}
+    [ ! -d ${ROOT_CA_DIR} ] && mkdir -p ${ROOT_CA_DIR}
 
     # Create the necessary directories for Bind9 (zone files, logs)
     mkdir -p $BIND9_ZONE_DIR
@@ -61,7 +63,6 @@ CREATE_FOLDERS_AND_PERMISSIONS ()
 
     # Set ownership and permissions for the SQLite database
     chown bind:bind $SQLITE_DB
-    chmod 644 $SQLITE_DB
 
     echo "Directories created and permissions set successfully."
 }
@@ -127,13 +128,13 @@ GENERATE_CERTIFICATES_FOR_HOSTNAMES ()
         # Step 1: Generate CSR and private key
         openssl req -new -newkey rsa:4096 -keyout "$KEY_FILE" -out "${CERT_FILE}.csr" -nodes \
             -subj "/CN=${HOSTNAME}" \
+            -addext "basicConstraints = CA:FALSE" \
             -addext "subjectAltName = DNS:${HOSTNAME},DNS:*.${HOSTNAME}"
 
         # Step 2: Sign the CSR using the Root CA and include necessary extensions
         openssl x509 -req -in "${CERT_FILE}.csr" -CA "$ROOT_CA_CERT" -CAkey "$ROOT_CA_KEY" \
-            -CAcreateserial -out "$CERT_FILE.crt" -days "$DAYS_VALID" -sha256 \
-            -addext "basicConstraints = CA:FALSE" \
-            -addext "subjectAltName = DNS:${HOSTNAME},DNS:*.${HOSTNAME}"
+            -CAcreateserial -out "$CERT_FILE" -days "$DAYS_VALID" -sha256 \
+            -copy_extensions copy
 
         # Step 3: Clean up CSR
         rm -f "${CERT_FILE}.csr"
@@ -150,8 +151,8 @@ GENERATE_APACHE_CONF ()
 {
     for HOSTNAME in "${!HOSTS[@]}"; do
         local port=${HOSTS[$HOSTNAME]}
-        local ssl_cert="/etc/ssl/certs/${HOSTNAME}.pem"
-        local ssl_key="/etc/ssl/private/${HOSTNAME}.key"
+        local ssl_cert="${CERTS_DIR}/${HOSTNAME}.pem"
+        local ssl_key="${KEYS_DIR}/${HOSTNAME}.key"
         local error_log="${APACHE_LOG_DIR}/${HOSTNAME}_error.log"
         local access_log="${APACHE_LOG_DIR}/${HOSTNAME}_access.log"
         local VHOST_CONF="/etc/apache2/sites-available/${HOSTNAME}.conf"
