@@ -11,6 +11,7 @@ BIND9_QUERY_LOG="$BIND9_LOG_DIR/query.log"
 ROOT_CA_DIR="/etc/apache2/ssl/rootca"
 ROOT_CA_KEY="${ROOT_CA_DIR}/rootCA.key"
 ROOT_CA_CERT="${ROOT_CA_DIR}/rootCA.pem"
+WWW_STORE="/var/www/html/store"
 
 # Declare an associative arraya
 declare -A HOSTS
@@ -298,6 +299,15 @@ EOF
     echo "Bind9 DNS server configured and restarted."
 }
 
+SETUP_STORE () 
+{
+    #Make Store
+    [[ ! -d ${WWW_STORE} ]] && mkdir -p "${WWW_STORE}"
+    #Get Root cert
+    cp ${ROOT_CA_DIR}/rootCA.pem ${WWW_STORE}/ss_demo_applications.crt
+    #Get Sample Files
+}
+
 # Main Function to Run All Setup
 MAIN () 
 {
@@ -307,6 +317,7 @@ MAIN ()
     GENERATE_CERTIFICATES_FOR_HOSTNAMES
     GENERATE_APACHE_CONF
     SETUP_BIND9_DNS
+    SETUP_STORE
 
     pm2 start ./ecosystem.config.js --env development --watch
     pm2 save
