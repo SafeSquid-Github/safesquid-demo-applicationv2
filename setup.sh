@@ -14,15 +14,26 @@ ROOT_CA_CERT="${ROOT_CA_DIR}/rootCA.pem"
 
 # Declare an associative arraya
 declare -A HOSTS
+declare -A SUB_DOAMINS
 
 GET_HOSTS () 
 {
     # Run the command to get names and ports and store them in the associative array
-    while IFS= read -r line; do
-        APP_NAME=$(echo "$line" | cut -d':' -f1)
-        APP_PORT=$(echo "$line" | cut -d':' -f2)
-        HOSTS["$APP_NAME"]="$APP_PORT"
+    while IFS= read -r LINE; do
+        APP_NAME=$(echo "${LINE}" | cut -d':' -f1)
+        APP_PORT=$(echo "${LINE}" | cut -d':' -f2)
+        HOSTS["${APP_NAME}"]="${APP_PORT}"
     done < <(node -e 'console.log(JSON.stringify(require("./ecosystem.config.js")))' | jq -r '.apps[] | "\(.env_development.DOMAIN):\(.env_development.PORT // .env_production.PORT)"')
+}
+
+GET_SUB_D () 
+{
+    # Run the command to get names and ports and store them in the associative array
+    while IFS= read -r LINE; do
+        APP_NAME=$(echo "${LINE}" | cut -d':' -f1)
+        APP_SUB=$(echo "${LINE}" | cut -d':' -f2)
+        SUB_DOAMINS["${APP_NAME}"]="${APP_SUB}"
+    done < <(node -e 'console.log(JSON.stringify(require("./ecosystem.config.js")))' | jq -r '.apps[] | "\(.env_development.DOMAIN):\(.env_development.SUBDOMAIN // .env_production.SUBDOMAIN)"')
 }
 
 # Function to Install Dependencies
@@ -52,17 +63,17 @@ CREATE_FOLDERS_AND_PERMISSIONS ()
     [ ! -d ${ROOT_CA_DIR} ] && mkdir -p ${ROOT_CA_DIR}
 
     # Create the necessary directories for Bind9 (zone files, logs)
-    mkdir -p $BIND9_ZONE_DIR
-    mkdir -p $BIND9_LOG_DIR
+    mkdir -p ${BIND9_ZONE_DIR}
+    mkdir -p ${BIND9_LOG_DIR}
 
     # Set ownership and permissions for Bind9 directories
-    chown -R bind:bind $BIND9_ZONE_DIR
-    chown -R bind:bind $BIND9_LOG_DIR
-    chmod -R 755 $BIND9_ZONE_DIR
-    chmod -R 700 $BIND9_LOG_DIR
+    chown -R bind:bind ${BIND9_ZONE_DIR}
+    chown -R bind:bind ${BIND9_LOG_DIR}
+    chmod -R 755 ${BIND9_ZONE_DIR}
+    chmod -R 700 ${BIND9_LOG_DIR}
 
     # Set ownership and permissions for the SQLite database
-    chown bind:bind $SQLITE_DB
+    chown bind:bind ${SQLITE_DB}
 
     echo "Directories created and permissions set successfully."
 }
@@ -73,25 +84,25 @@ CREATE_ROOT_CA ()
     echo "Creating Root Certificate Authority (Root CA)"
 
     # Create a directory for the Root CA if it doesn't exist
-    [[ ! -d ${ROOT_CA_DIR} ]] && mkdir -p $ROOT_CA_DIR
+    [[ ! -d ${ROOT_CA_DIR} ]] && mkdir -p ${ROOT_CA_DIR}
 
     # Check if Root CA certificate exists and is valid
-    [[ -f "$ROOT_CA_CERT" && -f "$ROOT_CA_KEY" ]] && openssl x509 -checkend 0 -noout -in "$ROOT_CA_CERT" 2>/dev/null
-    local RESULT=$?
-    [[ $RESULT == 0 ]] && echo "CA Certificate is valid. Skipping generation." && return
-    [[ $RESULT != 0 ]] && echo "CA Certificate is expired or invalid. Regenerating."
+    [[ -f "${ROOT_CA_CERT}" && -f "${ROOT_CA_KEY}" ]] && openssl x509 -checkend 0 -noout -in "${ROOT_CA_CERT}" 2>/dev/null
+    local RESULT=${?}
+    [[ ${RESULT} == 0 ]] && echo "CA Certificate is valid. Skipping generation." && return
+    [[ ${RESULT} != 0 ]] && echo "CA Certificate is expired or invalid. Regenerating."
 
     # Generate the Root CA private key (without passphrase)
     openssl genpkey -algorithm RSA -out ${ROOT_CA_KEY}
 
     # Generate the Root CA certificate (self-signed) with SafeSquid Labs as the issuer name
-    openssl req -key ${ROOT_CA_KEY} -new -x509 -out ${ROOT_CA_CERT} -days $DAYS_VALID \
+    openssl req -key ${ROOT_CA_KEY} -new -x509 -out ${ROOT_CA_CERT} -days ${DAYS_VALID} \
         -subj "/CN=SafeSquid Labs Root CA/O=SafeSquid Labs/OU=Root CA/C=US"  # Modify this line to include OU
 
     # Set correct permissions for the Root CA files
-    chown root:root $ROOT_CA_KEY $ROOT_CA_CERT
-    chmod 600 $ROOT_CA_KEY
-    chmod 644 $ROOT_CA_CERT
+    chown root:root ${ROOT_CA_KEY} ${ROOT_CA_CERT}
+    chmod 600 ${ROOT_CA_KEY}
+    chmod 644 ${ROOT_CA_CERT}
 
     echo "Root CA created successfully."
 }
@@ -99,12 +110,12 @@ CREATE_ROOT_CA ()
 # Function to Verify Certificate with Root CA
 VERIFY_CERTIFICATE_WITH_ROOT_CA () 
 {
-    local CERT_FILE=$1
-    echo "Verifying certificate: $CERT_FILE against Root CA: $ROOT_CA_CERT"
-    openssl verify -CAfile "$ROOT_CA_CERT" "$CERT_FILE" > /dev/null 2>&1
-    local RESULT=$?
-    [[ $RESULT == 2 ]] && echo "Certificate verification failed for $CERT_FILE" && return 1   
-    [[ $RESULT == 0 ]] && echo "Certificate verification successful for $CERT_FILE" && return 0
+    local CERT_FILE=${1}
+    echo "Verifying certificate: ${CERT_FILE} against Root CA: ${ROOT_CA_CERT}"
+    openssl verify -CAfile "${ROOT_CA_CERT}" "${CERT_FILE}" > /dev/null 2>&1
+    local RESULT=${?}
+    [[ ${RESULT} == 2 ]] && echo "Certificate verification failed for ${CERT_FILE}" && return 1   
+    [[ ${RESULT} == 0 ]] && echo "Certificate verification successful for ${CERT_FILE}" && return 0
 }
 
 # Function to Generate a Single Wildcard SSL Certificate
@@ -118,29 +129,29 @@ GENERATE_CERTIFICATES_FOR_HOSTNAMES ()
         CERT_FILE="${CERTS_DIR}/${HOSTNAME}.pem"
         KEY_FILE="${KEYS_DIR}/${HOSTNAME}.key"
 
-        [[ -f "$CERT_FILE" && -f "$KEY_FILE" ]] && openssl x509 -checkend 0 -noout -in "$CERT_FILE" 2>/dev/null
+        [[ -f "${CERT_FILE}" && -f "${KEY_FILE}" ]] && openssl x509 -checkend 0 -noout -in "${CERT_FILE}" 2>/dev/null
         local RESULT=$?
-        [[ $RESULT == 0 ]] && echo "Certificate for $HOSTNAME is valid. Skipping generation." && VERIFY_CERTIFICATE_WITH_ROOT_CA ${CERT_FILE} && continue
-        [[ $RESULT != 0 ]] && echo "Certificate for $HOSTNAME expired or invalid. Regenerating."
+        [[ ${RESULT} == 0 ]] && echo "Certificate for ${HOSTNAME} is valid. Skipping generation." && VERIFY_CERTIFICATE_WITH_ROOT_CA ${CERT_FILE} && continue
+        [[ ${RESULT} != 0 ]] && echo "Certificate for ${HOSTNAME} expired or invalid. Regenerating."
 
         echo "Generating SSL certificate and private key for ${HOSTNAME} and *.${HOSTNAME}"
 
         # Step 1: Generate CSR and private key
-        openssl req -new -newkey rsa:4096 -keyout "$KEY_FILE" -out "${CERT_FILE}.csr" -nodes \
+        openssl req -new -newkey rsa:4096 -keyout "${KEY_FILE}" -out "${CERT_FILE}.csr" -nodes \
             -subj "/CN=${HOSTNAME}" \
             -addext "basicConstraints = CA:FALSE" \
             -addext "subjectAltName = DNS:${HOSTNAME},DNS:*.${HOSTNAME}"
 
         # Step 2: Sign the CSR using the Root CA and include necessary extensions
-        openssl x509 -req -in "${CERT_FILE}.csr" -CA "$ROOT_CA_CERT" -CAkey "$ROOT_CA_KEY" \
-            -CAcreateserial -out "$CERT_FILE" -days "$DAYS_VALID" -sha256 \
+        openssl x509 -req -in "${CERT_FILE}.csr" -CA "${ROOT_CA_CERT}" -CAkey "${ROOT_CA_KEY}" \
+            -CAcreateserial -out "${CERT_FILE}" -days "${DAYS_VALID}" -sha256 \
             -copy_extensions copy
 
         # Step 3: Clean up CSR
         rm -f "${CERT_FILE}.csr"
 
-        [[ -f "$CERT_FILE" && -f "$KEY_FILE" ]] && echo "Certificate for $HOSTNAME generated successfully."
-        [[ ! -f "$CERT_FILE" && ! -f "$KEY_FILE" ]] && echo "Error: Failed to generate SSL certificate for $HOSTNAME." && exit 1
+        [[ -f "${CERT_FILE}" && -f "${KEY_FILE}" ]] && echo "Certificate for ${HOSTNAME} generated successfully."
+        [[ ! -f "${CERT_FILE}" && ! -f "${KEY_FILE}" ]] && echo "Error: Failed to generate SSL certificate for ${HOSTNAME}." && exit 1
     done
 
     echo "Certificates for all hostnames generated successfully."
@@ -150,14 +161,23 @@ GENERATE_CERTIFICATES_FOR_HOSTNAMES ()
 GENERATE_APACHE_CONF () 
 {
     for HOSTNAME in "${!HOSTS[@]}"; do
-        local port=${HOSTS[$HOSTNAME]}
-        local ssl_cert="${CERTS_DIR}/${HOSTNAME}.pem"
-        local ssl_key="${KEYS_DIR}/${HOSTNAME}.key"
-        local error_log="${APACHE_LOG_DIR}/${HOSTNAME}_error.log"
-        local access_log="${APACHE_LOG_DIR}/${HOSTNAME}_access.log"
-        local VHOST_CONF="/etc/apache2/sites-available/${HOSTNAME}.conf"
-        cat <<EOF > "$VHOST_CONF"
-# Auto-generated Apache configuration for $HOSTNAME
+        local PORT=${HOSTS[$HOSTNAME]}
+        local SSL_CERT="${CERTS_DIR}/${HOSTNAME}.pem"
+        local SSL_KEY="${KEYS_DIR}/${HOSTNAME}.key"
+        local ERROR_LOG="${APACHE_LOG_DIR}/${HOSTNAME}_error.log"
+        local ACCESS_LOG="${APACHE_LOG_DIR}/${HOSTNAME}_access.log"
+
+        local SUBD="${SUB_DOAMINS[${HOSTNAME}]}"
+        [[ "${SUBD}" == 'null' ]] && VIRTUAL_HOST="${HOSTNAME}"
+        [[ "${SUBD}" != 'null' ]] && VIRTUAL_HOST="${SUBD}.${HOSTNAME}"
+
+        local VHOST_CONF="/etc/apache2/sites-available/${VIRTUAL_HOST}.conf"
+
+        echo ${VIRTUAL_HOST}
+
+
+        cat <<EOF > "${VHOST_CONF}"
+# Auto-generated Apache configuration for ${VIRTUAL_HOST}
 
 # Redirect HTTP to HTTPS for all HOSTS
 <VirtualHost *:80>
@@ -167,25 +187,25 @@ GENERATE_APACHE_CONF ()
 </VirtualHost>
 
 <VirtualHost *:443>
-    ServerName $HOSTNAME
+    ServerName ${VIRTUAL_HOST}
     SSLEngine on
-    SSLCertificateFile $ssl_cert
-    SSLCertificateKeyFile $ssl_key
+    SSLCertificateFile ${SSL_CERT}
+    SSLCertificateKeyFile ${SSL_KEY}
 
-    ProxyPass "/" "http://localhost:$port/"
-    ProxyPassReverse "/" "http://localhost:$port/"
+    ProxyPass "/" "http://localhost:${PORT}/"
+    ProxyPassReverse "/" "http://localhost:${PORT}/"
 
-    ErrorLog $error_log
-    CustomLog $access_log combined
+    ErrorLog ${ERROR_LOG}
+    CustomLog ${ACCESS_LOG} combined
 </VirtualHost>
 
 EOF
         # Enable the virtual host
-		a2ensite "${HOSTNAME}.conf"
-		echo "Virtual host for ${HOSTNAME} created and enabled."
+		a2ensite "${VIRTUAL_HOST}.conf"
+		echo "Virtual host for ${VIRTUAL_HOST} created and enabled."
 	done
 
-    echo "Apache configuration generated in $VHOST_CONF"
+    echo "Apache configuration generated in ${VHOST_CONF}"
 
 	# Restart Apache to apply the changes
 	echo "Restarting Apache"
@@ -202,54 +222,54 @@ SETUP_BIND9_DNS ()
     HOST_IP=$(hostname -I | awk '{print $1}')
 
     # Check if the IP was successfully retrieved
-    [[ -z "$HOST_IP" ]] && echo "Error: Could not retrieve the host's IP address." && exit 1
+    [[ -z "${HOST_IP}" ]] && echo "Error: Could not retrieve the host's IP address." && exit 1
 
-    echo "Host IP address is: $HOST_IP"
+    echo "Host IP address is: ${HOST_IP}"
 
     # Create Bind9 zones directory if it doesn't exist
     BIND9_ZONE_DIR="/etc/bind/zones"
-    mkdir -p "$BIND9_ZONE_DIR"
+    mkdir -p "${BIND9_ZONE_DIR}"
 
     # Loop through each hostname and create its zone file
     for HOSTNAME in "${!HOSTS[@]}"; do
-        echo "Creating zone file for $HOSTNAME"
+        echo "Creating zone file for ${HOSTNAME}"
 
-        ZONE_FILE="$BIND9_ZONE_DIR/db.$HOSTNAME"
-        cat << EOF > "$ZONE_FILE"
+        ZONE_FILE="${BIND9_ZONE_DIR}/db.${HOSTNAME}"
+        cat << EOF > "${ZONE_FILE}"
 \$TTL    86400
-@       IN      SOA     ns1.$HOSTNAME. root.$HOSTNAME. (
+@       IN      SOA     ns1.${HOSTNAME}. root.${HOSTNAME}. (
                         1        ; Serial
                         3600     ; Refresh
                         1800     ; Retry
                         1209600  ; Expire
                         86400 )  ; Minimum TTL
 
-        IN      NS      ns1.$HOSTNAME.
+        IN      NS      ns1.${HOSTNAME}.
 ns1     IN      A       $HOST_IP
 
-; A record for $HOSTNAME domain
-@       IN      A       $HOST_IP
+; A record for ${HOSTNAME} domain
+@       IN      A       ${HOST_IP}
 
-; A record for www.$HOSTNAME
-www     IN      A       $HOST_IP
+; A record for www.${HOSTNAME}
+www     IN      A       ${HOST_IP}
 
-; Wildcard record for *.$HOSTNAME
-*       IN      A       $HOST_IP
+; Wildcard record for *.${HOSTNAME}
+*       IN      A       ${HOST_IP}
 EOF
 
-        echo "Zone file for $HOSTNAME created."
+        echo "Zone file for ${HOSTNAME} created."
 
         # Check if zone already exists in named.conf.local
-        if ! grep -q "zone \"$HOSTNAME\"" /etc/bind/named.conf.local; then
-            echo "Adding zone for $HOSTNAME to Bind9 configuration"
+        if ! grep -q "zone \"${HOSTNAME}\"" /etc/bind/named.conf.local; then
+            echo "Adding zone for ${HOSTNAME} to Bind9 configuration"
             cat << EOF >> /etc/bind/named.conf.local
-zone "$HOSTNAME" {
+zone "${HOSTNAME}" {
     type master;
-    file "$ZONE_FILE";
+    file "${ZONE_FILE}";
 };
 EOF
         else
-            echo "Zone for $HOSTNAME already exists in Bind9 configuration."
+            echo "Zone for ${HOSTNAME} already exists in Bind9 configuration."
         fi
     done
 
@@ -283,7 +303,7 @@ MAIN ()
 {
     INSTALL_DEPENDENCIES
     CREATE_FOLDERS_AND_PERMISSIONS
-    GET_HOSTS
+    GET_HOSTS && GET_SUB_D
     GENERATE_CERTIFICATES_FOR_HOSTNAMES
     GENERATE_APACHE_CONF
     SETUP_BIND9_DNS
