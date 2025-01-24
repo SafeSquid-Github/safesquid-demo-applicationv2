@@ -28,6 +28,33 @@ module.exports = {
             pre_start: "mkdir -p logs && npm install",
         },
         {
+            name: "icicibank",
+            tag: "Phishing Lure",
+            namespace: "phishing",
+            cwd: "./phishing/icicibank",
+            script: "./app.js",
+            out_file: "./logs/out.log", // Standard output
+            error_file: "./logs/error.log", // Error logs
+            log_file: "./logs/combined.log", // Combined logs
+            merge_logs: true,
+            watch: true,
+            ignore_watch: ["node_modules", "uploads", "logs"],
+            env_development: { // Explicitly define the `development` environment
+                NODE_ENV: "development",
+                PORT: 3009,
+                DB: '../../databases/phish.db',
+                DOMAIN: 'icicibank.com',
+                SUBDOMAIN: 'infinity',
+            },
+            env_production: {
+                NODE_ENV: "production",
+                PORT: 3009,
+                DB: '../../databases/phish.db',
+                DOMAIN: 'icicibank.com',
+            },
+            pre_start: "mkdir -p logs && npm install",
+        },
+        {
             name: "infoman",
             tag: "Credential Store",
             namespace: "phishing",
@@ -160,7 +187,7 @@ module.exports = {
             name: "swgaudit",
             tag: "DNS Tunneling",
             namespace: "dns_tunneling",
-            cwd: "./dns_tunneling",
+            cwd: "./dns_tunneling/swgaudit",
             script: "./app.js",
             out_file: "./logs/out.log", // Standard output
             error_file: "./logs/error.log", // Error logs
@@ -179,6 +206,32 @@ module.exports = {
                 PORT: 3007,
                 DNS_LOG_FILE: "/var/log/named/query.log",
                 DOMAIN: 'swgaudit.com',
+            },
+            pre_start: "mkdir -p logs && npm install",
+        },
+        {
+            name: "dnscapturestore",
+            tag: "DNS Tunneling",
+            namespace: "dns_tunneling",
+            cwd: "./dns_tunneling/store",
+            script: "./app.js",
+            out_file: "./logs/out.log", // Standard output
+            error_file: "./logs/error.log", // Error logs
+            log_file: "./logs/combined.log", // Combined logs
+            merge_logs: true,
+            watch: true,
+            ignore_watch: ["node_modules", "uploads", "logs"],
+            env_development: { // Explicitly define the `development` environment
+                NODE_ENV: "development",
+                PORT: 3008,
+                DNS_LOG_FILE: "/var/log/named/query.log",
+                DOMAIN: 'dnsstore.com',
+            },
+            env_production: {
+                NODE_ENV: "production",
+                PORT: 3008,
+                DNS_LOG_FILE: "/var/log/named/query.log",
+                DOMAIN: 'dnsstore.com',
             },
             pre_start: "mkdir -p logs && npm install",
         },
