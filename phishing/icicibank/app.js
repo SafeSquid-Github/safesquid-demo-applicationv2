@@ -56,7 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route: Serve HTML form
 app.get('/corp/AuthenticationController', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Route: Handle form submission
