@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1100px;  
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+.top-nav-content {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+}
+
+.top-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-nav-list li {
+    list-style-type: none;
+    font-size: 12px;
+    color: #606060;
+    border-right: 1px solid #666;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.top-nav-list li:last-child {
+    border-right: none;
+}
+
+.top-nav-list li:hover {
+    text-decoration: underline;
+}
+
+.main-nav-list {
+    display: flex;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.main-nav-list li {
+    cursor: pointer;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.main-nav-list li:hover {
+    color: blue;
+}
+
+.intro-bg img {
+    z-index: -1;
+    height: 34rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+.login-form {
+    border-radius: 5px;
+    height: 24rem;
+    background: white;
+    width: 260px;
+    padding: 1.2rem;
+    /* margin: 0 auto 0; */
+    box-shadow: 0 2px 5px rgba(113, 113, 113, 0.39);
+}
+
+.other-section {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+    margin-top: -520px;
+}
+
+.row {
+    display: flex;
+    margin: 0 -15px;
+}
+
+.row .col-md-7,
+.row .col-md-5 {
+    padding: 0 15px;
+}
+
+.col-md-7 {
+    flex: 0 0 58.333%;
+    max-width: 58.333%;
+}
+
+.col-md-5 {
+    flex: 0 0 41.667%;
+    max-width: 41.667%;
+}
+
+.info {
+    background: white;
+    box-shadow: 0 2px 5px rgba(113, 113, 113, 0.39);
+    border-radius: 5px;
+    padding: 2rem;
+}
+
+.info ul li {
+    font-size: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.info h5 {
+    color: #0B3C6D;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.content-bottom {
+    padding-top: 50px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.sub-text {
+    font-size: 0.75rem;
+    margin-bottom: 0;
+}
+
+.para-link {
+    color: #F27B1A;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #F27B1A;
+    background: #FFFFF9;
+    box-shadow: 0 0 1px rgba(235, 146, 44, 1);
+}
+
+.login-iciciibank {
+    background-color: #F27B1A;
+    font-size: 1rem;
+    color: white;
+    line-height: 2rem;
+    text-align: center;
+    width: 10rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+    transition: background-color 0.2s ease-in;
+    margin: 1.2rem 0;
+    cursor: pointer;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
