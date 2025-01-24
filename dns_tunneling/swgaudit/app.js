@@ -61,10 +61,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-app.get("/store", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "store.html"));
-});
-
 app.post("/upload", upload.single("filename"), (req, res) => {
   const file = req.file;
 
@@ -73,27 +69,6 @@ app.post("/upload", upload.single("filename"), (req, res) => {
   } else {
     return res.status(200).send("File upload successful");
   }
-});
-
-// API endpoint to get log details
-app.get("/api/sessions", (req, res) => {
-  const logs = parseLogFile(logFilePath);
-  if (logs.length === 0) {
-    return res.status(200).json({ error: "No logs available or failed to parse logs." });
-  }
-  res.json(logs);
-});
-
-// Clear log file
-app.post("/clear-data", (req, res) => {
-  fs.truncate(logFilePath, 0, (err) => {
-    if (err) {
-      console.error("Error clearing DNS log file:", err.message);
-      return res.status(500).json({ success: false });
-    }
-    console.log("Log file cleared successfully.");
-    res.json({ success: true });
-  });
 });
 
 // Start server
