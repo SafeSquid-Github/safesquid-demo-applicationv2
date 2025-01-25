@@ -108,6 +108,8 @@
                 // Store the comment as is, without sanitizing input (Vulnerable to XSS)
                 comments.push({ name, commentText });
                 saveCommentsToStorage(comments);  // Save comments to localStorage
+                document.getElementById('comment-input').value = '';
+                document.getElementById('name-input').value = '';
                 renderComments();
             } else {
                 alert('Please fill out both fields');
