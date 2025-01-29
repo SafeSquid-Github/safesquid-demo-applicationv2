@@ -7,7 +7,7 @@ const morgan = require('morgan');
 
 // Initialize app
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3009;
 
 // Log to console
 app.use(morgan('combined'));
