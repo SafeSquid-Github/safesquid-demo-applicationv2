@@ -32,7 +32,12 @@ const db = new sqlite3.Database(dbPath, err => {
                 username TEXT NOT NULL,
                 password TEXT NOT NULL,
                 website TEXT NOT NULL,
-                date TEXT NOT NULL
+                date TEXT NOT NULL,
+                ip_address TEXT,
+                browser TEXT,
+                os TEXT,
+                device TEXT,
+                location TEXT
             )`,
             err => {
                 if (err) {
