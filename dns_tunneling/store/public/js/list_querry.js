@@ -48,7 +48,12 @@ xmlhttp.onload = function () {
 
         // Create a title for the session box
         var sessionTitle = document.createElement('h3');
-        sessionTitle.textContent = `Session ID: ${sessionId}`;
+        sessionTitle.textContent = `Session ID: ${sessionId} (${sessionData.length} DNS Queries)`;
+        sessionBox.appendChild(sessionTitle);
+        
+        // Create a subtitle for date and time
+        var sessionTitle = document.createElement('h4');
+        sessionTitle.textContent = `${sessionData[0]['date']} ${sessionData[0]['time']}`;
         sessionBox.appendChild(sessionTitle);
 
         // Group all the decoded queries for this sessionId
@@ -65,7 +70,7 @@ xmlhttp.onload = function () {
         sessionBox.appendChild(queryBox);
 
         // Append the session box to the main container
-        container.appendChild(sessionBox);
+        container.prepend(sessionBox);
     });
 };
 
