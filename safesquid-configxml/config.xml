@@ -1,0 +1,1259 @@
+<?xml version="1.0" ?>
+<safesquid>
+    <access>
+        <policy>DENY</policy>
+        <ntlm_authentication>TRUE</ntlm_authentication>
+        <allow id="1">
+            <enabled>TRUE</enabled>
+            <comment>Access web interface through tunnel.</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <ip>127.0.0.1</ip>
+            <pamauth>FALSE</pamauth>
+            <access>CONFIG,PROXY,HTTP,TRANSPARENT,CONNECT</access>
+            <add_user_groups>TUNNELLED_UI_ACCESS</add_user_groups>
+        </allow>
+        <allow id="3">
+            <enabled>TRUE</enabled>
+            <comment>We allow administrators to access the SafeSquid Interface from any IP     </comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <pamauth>TRUE</pamauth>
+            <access>CONFIG,PROXY,HTTP,TRANSPARENT,CONNECT</access>
+            <add_user_groups>Local_Admin</add_user_groups>
+        </allow>
+        <allow id="5">
+            <enabled>TRUE</enabled>
+            <comment>General Users</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <pamauth>FALSE</pamauth>
+            <username>User1</username>
+            <access>PROXY,HTTP,TRANSPARENT,CONNECT</access>
+            <add_user_groups>GENERAL_USERS</add_user_groups>
+        </allow>
+        <allow id="7">
+            <enabled>TRUE</enabled>
+            <comment>We allow administrators to access the SafeSquid Interface from any IP     </comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <pamauth>FALSE</pamauth>
+            <username>Pratik</username>
+            <access>CONFIG,PROXY,HTTP,TRANSPARENT,CONNECT</access>
+            <add_user_groups>GENERAL_USERS</add_user_groups>
+        </allow>
+        <allow id="9">
+            <enabled>TRUE</enabled>
+            <comment>Allow slave proxy servers in the cluster to sync policies.&#x0A;IP addresses of slave Proxy Instances: 192.168.2.116,192.168.2.117</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <ip>192.168.2.116,192.168.2.117</ip>
+            <pamauth>FALSE</pamauth>
+            <access>CONFIG</access>
+            <add_user_groups>PROXY_SLAVES</add_user_groups>
+        </allow>
+        <allow id="11">
+            <enabled>TRUE</enabled>
+            <comment>All authenticated users not added to any specific user group are placed in the &quot;GENERAL_USERS&quot; user group.&#x0A;GENERAL_USERS are permitted to access the web as per policies, but not permitted to access the SafeSquid Interface</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <pamauth>FALSE</pamauth>
+            <access>PROXY,HTTP,TRANSPARENT,CONNECT</access>
+            <add_user_groups>GENERAL_USERS</add_user_groups>
+        </allow>
+    </access>
+    <cache>
+        <enabled>FALSE</enabled>
+        <violate_rfc>TRUE</violate_rfc>
+        <maxmemsize>512M</maxmemsize>
+        <memextra>256M</memextra>
+        <minsize>100K</minsize>
+        <maxsize>1M</maxsize>
+        <prefetchwindow>30</prefetchwindow>
+        <icpport>0</icpport>
+        <icptimeout>1000</icptimeout>
+        <sbalancemethod>FILLPERCENT</sbalancemethod>
+        <journalsize>128000</journalsize>
+        <cleaninterval>60</cleaninterval>
+        <store id="13">
+            <enabled>FALSE</enabled>
+            <comment>Storing cache</comment>
+            <profiles>CACHING CONTENT</profiles>
+            <path>/var/cache/safesquid/</path>
+            <maxdisksize>1G</maxdisksize>
+            <diskextra>250M</diskextra>
+            <md5>TRUE</md5>
+        </store>
+        <refresh id="15">
+            <enabled>FALSE</enabled>
+            <comment>This default rule is for refreshing the cache time intervals.</comment>
+            <profiles>CACHING CONTENT</profiles>
+            <cachable>TRUE</cachable>
+            <minage>1800</minage>
+            <maxage>2592000</maxage>
+            <validate>129600</validate>
+            <lmfactor>10</lmfactor>
+        </refresh>
+        <refresh id="17">
+            <enabled>FALSE</enabled>
+            <comment>Do not cache</comment>
+            <cachable>FALSE</cachable>
+            <minage>1800</minage>
+            <maxage>2592000</maxage>
+            <validate>129600</validate>
+            <lmfactor>10</lmfactor>
+        </refresh>
+    </cache>
+    <clamav>
+        <enabled>TRUE</enabled>
+        <clamavhost>/var/run/clamav/clamd.ctl</clamavhost>
+        <clamav id="19">
+            <enabled>TRUE</enabled>
+            <comment>Scan all contents of ANTIVIRUS profile.</comment>
+            <profiles>ENFORCE CLAMAV SCANNING</profiles>
+        </clamav>
+    </clamav>
+    <cookies-filtering>
+        <enabled>TRUE</enabled>
+        <policy>ALLOW</policy>
+        <deny id="21">
+            <enabled>TRUE</enabled>
+            <comment>Strip cookies from all connections profiled as READ ONLY</comment>
+            <profiles>READ ONLY</profiles>
+            <year active="true">1900,3000</year>
+            <month active="true">JANUARY,DECEMBER</month>
+            <day active="true">1,31</day>
+            <weekday active="true">SUNDAY,SATURDAY</weekday>
+            <hour active="true">0,23</hour>
+            <minute active="true">0,59</minute>
+            <direction>BOTH</direction>
+            <matchmode>ALLRANGES</matchmode>
+        </deny>
+    </cookies-filtering>
+    <dlp>
+        <enabled>TRUE</enabled>
+        <DLP id="23">
+            <enabled>FALSE</enabled>
+            <comment>We forbid all the users from uploading any kind of contents to any website</comment>
+            <action>DO_NOT_BYPASS</action>
+        </DLP>
+        <DLP id="25">
+            <enabled>FALSE</enabled>
+            <comment>We  Allow Users to Upload Textual Content.</comment>
+            <profiles>ALLOW BASIC TEXT POSTS</profiles>
+            <mime>application/json,text/html,text/json,text/plain,text/xml</mime>
+            <action>ALLOW</action>
+        </DLP>
+        <DLP id="27">
+            <enabled>FALSE</enabled>
+            <comment>Allow Uploading of Spread Sheets.</comment>
+            <profiles>ALLOW SPREADSHEET DOCUMENT UPLOAD</profiles>
+            <mime>application/vnd.ms-excel*,application/vnd.oasis.opendocument.spreadsheet*,application/vnd.openxmlformats-officedocument.spreadsheetml.*,application/vnd.sun.xml.calc*</mime>
+            <action>ALLOW</action>
+        </DLP>
+        <DLP id="29">
+            <enabled>FALSE</enabled>
+            <comment>Allow Uploading of Word Documents</comment>
+            <profiles>ALLOW WORD DOCUMENT UPLOAD</profiles>
+            <mime>application/msword|application/vnd.ms-word.*,application/vnd.openxmlformats-officedocument.wordprocessingml.*</mime>
+            <action>ALLOW</action>
+        </DLP>
+        <DLP id="31">
+            <enabled>FALSE</enabled>
+            <comment>Allow Uploading of PowerPoint Documents</comment>
+            <profiles>ALLOW POWERPOINT DOCUMENT UPLOAD</profiles>
+            <mime>application/vnd.ms-powerpoint*,vnd.openxmlformats-officedocument.presentationml.*</mime>
+            <action>ALLOW</action>
+        </DLP>
+        <DLP id="33">
+            <enabled>FALSE</enabled>
+            <comment>Allow Uploading of ZIP Files [only .zip files]</comment>
+            <profiles>ALLOW ZIP FILE UPLOAD</profiles>
+            <mime>application/zip</mime>
+            <action>ALLOW</action>
+        </DLP>
+        <DLP id="35">
+            <enabled>FALSE</enabled>
+            <comment>Allow Uploading of Image Files [only images/.* files]</comment>
+            <profiles>ALLOW IMAGE FILE UPLOAD</profiles>
+            <mime>image/.*</mime>
+            <action>ALLOW</action>
+        </DLP>
+        <DLP id="37">
+            <enabled>FALSE</enabled>
+            <comment>Block Upload of Documents[word, excel, ppt &amp; pdf for the below listed profile</comment>
+            <profiles>BLOCK UPLOADS</profiles>
+            <mime>application/msword|application/vnd.ms-word.*,application/pdf,application/vnd.ms-excel*,application/vnd.ms-powerpoint*,application/vnd.openxmlformats-officedocument.*,application/vnd.openxmlformats-officedocument.spreadsheetml.*,application/vnd.openxmlformats-officedocument.wordprocessingml.*,vnd.openxmlformats-officedocument.presentationml.*</mime>
+            <action>DO_NOT_BYPASS</action>
+        </DLP>
+        <DLP id="39">
+            <enabled>TRUE</enabled>
+            <comment>We Prohibit uploading of PDF Files</comment>
+            <mime>application/pdf</mime>
+            <action>DO_NOT_BYPASS</action>
+        </DLP>
+    </dlp>
+    <dnsbl>
+        <enabled>TRUE</enabled>
+        <limit>2</limit>
+        <policy id="41">
+            <enabled>TRUE</enabled>
+            <comment>We block DNS requests for all websites categorized as Child Abuse Images,Nudity,Pornography/Sexually Explicit,Sex Education.</comment>
+            <bl_categories>Child Abuse Images,Nudity,Pornography/Sexually Explicit,Sex Education</bl_categories>
+        </policy>
+        <policy id="43">
+            <enabled>TRUE</enabled>
+            <comment>We block DNS requests for all websites categorized as Alcohol &amp; Tobacco,Criminal Activity,Cults,Gambling,Hate &amp; Intolerance,Illegal Drug,School Cheating,Tasteless,Violence,Weapons,games</comment>
+            <bl_categories>Alcohol &amp; Tobacco,Criminal Activity,Cults,Gambling,Games,Hate &amp; Intolerance,Illegal Drug,Peer-to-Peer,School Cheating,Tasteless,Violence</bl_categories>
+        </policy>
+        <policy id="45">
+            <enabled>TRUE</enabled>
+            <comment>We block DNS requests for all websites categorized as Anonymizers, Botnets, Compromised, Hacking Illegal Software, Malware, Peer-to-Peer, Phishing &amp; Fraud, Spam Sites </comment>
+            <bl_categories>Anonymizers,Botnets,Compromised,Hacking,Illegal Software,Malware,Peer-to-Peer,Phishing &amp; Fraud,Spam Sites</bl_categories>
+        </policy>
+        <policy id="47">
+            <enabled>TRUE</enabled>
+            <comment>We prohibit access to malicious websites reported by our security apparatus</comment>
+            <bl_requests>Security Threat</bl_requests>
+        </policy>
+        <policy id="49">
+            <enabled>TRUE</enabled>
+            <comment>We Block DNS queries for websites Geo-Located in China</comment>
+            <bl_countries>CN</bl_countries>
+        </policy>
+    </dnsbl>
+    <elevated>
+        <enabled>TRUE</enabled>
+        <ELEVATED id="51">
+            <enabled>TRUE</enabled>
+            <comment>Permit Third-Party transactions</comment>
+            <profiles>BYPASS ELEVATED PRIVACY</profiles>
+            <action>NOT-REQUIRED</action>
+        </ELEVATED>
+        <ELEVATED id="53">
+            <enabled>TRUE</enabled>
+            <comment>Prevent Targeted attacks from by preventing cookie exchange, hide referrer, and user-agent</comment>
+            <profiles>ENFORCE PARANOID PRIVACY LEVEL</profiles>
+            <action>PARANOID</action>
+        </ELEVATED>
+        <ELEVATED id="55">
+            <enabled>TRUE</enabled>
+            <comment>Default Policy prevent third-party cookies</comment>
+            <profiles>ENFORCE LOW PRIVACY LEVEL</profiles>
+            <action>LOW</action>
+        </ELEVATED>
+    </elevated>
+    <external>
+        <enabled>FALSE</enabled>
+    </external>
+    <forward>
+        <enabled>FALSE</enabled>
+        <carp>FALSE</carp>
+        <carphashsize>0</carphashsize>
+        <forward id="57">
+            <enabled>FALSE</enabled>
+            <comment>Forward all requests to upstream proxy 192.168.250.141:8080</comment>
+            <proxy>192.168.0.17</proxy>
+            <port>8080</port>
+            <icptype>NONE</icptype>
+            <icpport>0</icpport>
+            <type>HTTP</type>
+            <which>HTTP,FTP,CONNECT</which>
+        </forward>
+    </forward>
+    <ftp>
+        <passive>FALSE</passive>
+        <timeout>15</timeout>
+        <anonlogin>anonymous</anonlogin>
+        <anonpass>noone@nowhere.com</anonpass>
+        <sortorder>ASCENDING</sortorder>
+        <sortfield>NAME</sortfield>
+    </ftp>
+    <general>
+        <hostname>swg-demo</hostname>
+        <poolsize>1000</poolsize>
+        <pooltimeout>6</pooltimeout>
+        <dheaders>CLIENT</dheaders>
+        <catreferer>TRUE</catreferer>
+        <general id="59">
+            <enabled>TRUE</enabled>
+            <comment>Default policy and applicable for all cases.&#x0A;Our Default policy is to prohibit all Connect requests except to ports 80,443,2000 to 2100, 8080, and 9000 to 10000</comment>
+            <ctimeout>6</ctimeout>
+            <timeout>60</timeout>
+            <keeptimeout>6</keeptimeout>
+            <maxdbuffer>10M</maxdbuffer>
+            <maxubuffer>10M</maxubuffer>
+            <bufferwait>6</bufferwait>
+            <cportrange>80,443,2000-2100,8080,9000-10000</cportrange>
+            <encodemime>excel,html,javascript,text,text/css,word,xml</encodemime>
+            <compressout>TRUE</compressout>
+            <compressin>AUTO</compressin>
+            <buffer_chunked>ENCODED</buffer_chunked>
+            <xforwardedfor>FALSE</xforwardedfor>
+            <via>FALSE</via>
+        </general>
+        <general id="61">
+            <enabled>FALSE</enabled>
+            <comment>Default policy and applicable for all cases.&#x0A;Our Default policy is to prohibit all Connect requests except to ports 80,443.</comment>
+            <ctimeout>6</ctimeout>
+            <timeout>6</timeout>
+            <keeptimeout>6</keeptimeout>
+            <maxdbuffer>10M</maxdbuffer>
+            <maxubuffer>400M</maxubuffer>
+            <bufferwait>6</bufferwait>
+            <cportrange>80,443</cportrange>
+            <encodemime>excel,html,javascript,text,text/css,word,xml</encodemime>
+            <compressout>TRUE</compressout>
+            <compressin>AUTO</compressin>
+            <xforwardedfor>FALSE</xforwardedfor>
+            <via>FALSE</via>
+        </general>
+    </general>
+    <header-filtering>
+        <enabled>TRUE</enabled>
+        <policy>ALLOW</policy>
+        <insert id="65">
+            <enabled>TRUE</enabled>
+            <comment>We require users to login to Google with only our corporate domains - our_domain.com, our_domain.net, and our_domain.org</comment>
+            <profiles>ENFORCE CORPORATE GOOGLE ACCOUNTS</profiles>
+            <type>X-GoogApps-Allowed-Domains</type>
+            <value>oeipl.com</value>
+            <which>CLIENT</which>
+        </insert>
+        <insert id="67">
+            <enabled>FALSE</enabled>
+            <comment>We require users to login to Microsoft Office 365 with only our corporate domains id</comment>
+            <profiles>ENFORCE CORPORTATE MICROSOFT OFFICE 365 ACCOUNTS</profiles>
+            <type>Restrict-Access-To-Tenants</type>
+            <value>our_domain.com</value>
+            <which>CLIENT</which>
+        </insert>
+        <insert id="69">
+            <enabled>FALSE</enabled>
+            <comment>We require users to login to Microsoft Office 365 with only our corporate domains id</comment>
+            <profiles>ENFORCE CORPORTATE MICROSOFT OFFICE 365 ACCOUNTS</profiles>
+            <type>Restrict-Access-Context</type>
+            <value>office-tenet-id</value>
+            <which>CLIENT</which>
+        </insert>
+        <insert id="71">
+            <enabled>TRUE</enabled>
+            <comment>Enforce Youtube&apos;s Restricted Mode.</comment>
+            <profiles>ENFORCE YOUTUBE RESTRICTED MODE</profiles>
+            <type>YouTube-Restrict</type>
+            <value>Strict</value>
+            <which>CLIENT</which>
+        </insert>
+        <insert id="73">
+            <enabled>TRUE</enabled>
+            <comment>Restrict loading of cross-site URLs using script interfaces.</comment>
+            <profiles>!FULL CONTENT ACCESS,!MINIMAL CONTENT ACCESS</profiles>
+            <type>Content-Security-Policy</type>
+            <value>connect-src &apos;inline&apos; @HOST_DOMAIN@ *.@HOST_DOMAIN@; child-src &apos;self&apos; @HOST_DOMAIN@ *.@HOST_DOMAIN@;  report-uri https://safesquid.cfg/csp?CLIENTID=@CLIENTID@&amp;USERNAME=@USERNAME@</value>
+            <which>SERVER</which>
+        </insert>
+        <insert id="2603">
+            <enabled>TRUE</enabled>
+            <comment>Restrict web-page from triggering popups, or any plugins, scripts, cross-orgin traffic, etc. and prevent users to make any form submissions or downloads.</comment>
+            <profiles>MINIMAL CONTENT ACCESS</profiles>
+            <type>Content-Security-Policy</type>
+            <value>default-src &apos;none&apos;; form-action &apos;none&apos;; font-src *; child-src &apos;none&apos;; img-src *; style-src * &apos;unsafe-inline&apos;; report-uri https://safesquid.cfg/csp?CLIENTID=@CLIENTID@&amp;USERNAME=@USERNAME@</value>
+            <which>SERVER</which>
+        </insert>
+        <insert id="2605">
+            <enabled>FALSE</enabled>
+            <comment>report only</comment>
+            <type>Content-Security-Policy-Report-Only</type>
+            <value>default-src &apos;none&apos;; object-src &apos;none&apos;; base-uri &apos;none&apos;; plugin-types &apos;none&apos;; form-action &apos;none&apos; frame-ancestors &apos;none&apos;; navigate-to &apos;none&apos;; block-all-mixed-content; upgrade-insecure-requests; report-uri https://safesquid.cfg/csp?CLIENTID=@CLIENTID@&amp;USERNAME=@USERNAME@;</value>
+            <which>SERVER</which>
+        </insert>
+        <insert id="75">
+            <enabled>TRUE</enabled>
+            <comment>CSP Sandboxing</comment>
+            <profiles>CSP SANDBOX</profiles>
+            <type>Content-Security-Policy</type>
+            <value>sandbox allow-scripts allow-same-origin;</value>
+            <which>SERVER</which>
+        </insert>
+    </header-filtering>
+    <icap>
+        <enabled>FALSE</enabled>
+        <icap id="77">
+            <enabled>FALSE</enabled>
+            <comment>Send requests to ClamAV ICAP server REQMOD</comment>
+            <icaptimeout>60</icaptimeout>
+            <host>192.168.223.100</host>
+            <file>/squidclamav</file>
+            <port>1344</port>
+            <which>REQUESTS</which>
+            <threat_string>X-Infection-Found,X-VIRUS-ID</threat_string>
+            <quarantine_enabled>DISABLED</quarantine_enabled>
+            <quarantine_inclreq_headers>YES</quarantine_inclreq_headers>
+            <quarantine_clean>NO</quarantine_clean>
+        </icap>
+        <icap id="79">
+            <enabled>FALSE</enabled>
+            <comment>Send responses to ClamAV ICAP server RESPMOD</comment>
+            <icaptimeout>60</icaptimeout>
+            <host>192.168.223.100</host>
+            <file>/squidclamav</file>
+            <port>1344</port>
+            <which>RESPONSES</which>
+            <threat_string>X-Infection-Found,X-VIRUS-ID</threat_string>
+            <quarantine_enabled>DISABLED</quarantine_enabled>
+            <quarantine_inclreq_headers>YES</quarantine_inclreq_headers>
+            <quarantine_clean>NO</quarantine_clean>
+        </icap>
+    </icap>
+    <imgfilter>
+        <enabled>TRUE</enabled>
+        <dtempl>checkeredgif</dtempl>
+        <imgfilter id="81">
+            <enabled>TRUE</enabled>
+            <comment>Bypass Image Filter</comment>
+            <bypass>TRUE</bypass>
+            <profiles>BYPASS IMAGE FILTER</profiles>
+            <threshold>0.0</threshold>
+            <template>checkeredgif</template>
+            <debugmode>FALSE</debugmode>
+        </imgfilter>
+        <imgfilter id="83">
+            <enabled>TRUE</enabled>
+            <comment>High Sensitivity Policy for aggressive detection of Pornographic Images</comment>
+            <bypass>FALSE</bypass>
+            <profiles>ENFORCE PARANOID IMAGE SCAN</profiles>
+            <threshold>-1.0</threshold>
+            <template>checkeredgif</template>
+            <debugmode>TRUE</debugmode>
+        </imgfilter>
+        <imgfilter id="85">
+            <enabled>TRUE</enabled>
+            <comment>Standard Policy for detecting Pornographic Images</comment>
+            <bypass>FALSE</bypass>
+            <threshold>0.0</threshold>
+            <template>checkeredgif</template>
+            <debugmode>FALSE</debugmode>
+        </imgfilter>
+    </imgfilter>
+    <keywords-filtering>
+        <enabled>FALSE</enabled>
+        <threshold>100</threshold>
+        <keyword id="87">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(flexible girl|flexible girls|girls lingerie|girls high heels|little girls nude|cyber girls|sexy hot girls|sex girl|naked college girls|naked little girls|hot girl|hot nude girls|girls lingerie|beautiful girls|girls high heels|girls bikini|girls on webcams|girls webcams|live girls|girls webcam|nude|fuck|sex)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="89">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(sexy videos|photo sexy|webcam live|video playmate|play boy|jurgita valts|playmates videos|karen mcdougal|playboytv|web cam live|sexy photos|playboyplus|nude women|playboytv com|sexy naked women|hugh hefner|playmate|cumshot|shemale|footjob|housewife galleries|schoolgirls pictures|allwam|xnxx galleries|stockings|retro porn|twistys|bukkake|twistys com|high heels pictures|bikini thumbs|upskirt|spanking galleries|titjob|handjob pictures|shaved pussy|pissing|spanking gallery|3d porn|xxnx com|anal|xnxx|adult 89 com|hairy movie|mature cunt|thai xxx|pussy org|juicy gals|89 com xxx|comics xxx|bigcock|comic xxx|small tits|89 com movies|lingerie mania|asian lesbians|voyeur russian|granny hairy|http www 89 com|asian teen|89 com video|fat fucking|lesbian fuck|upskirt|asian facials|bigtit|teens porno|handjob|black butt|little teen|anal hardcore|sex sites|porn 89|big cocks|ass hunter|big cock|www pichunter|xxx petite|pichunter|ass gallery|hunter sex|xxx pictures|tiny tits|picture hunter|pussy hunter|cock pictures|live webcams|porn world|sex teen movies|biggest tits in the world|worldsex|sexy pics|teen movies|freehardcore|hardcoresex|pornstars|hard cock)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="91">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(suck cock|tits sucking|suck dick|sucking dick|suck tits|divas hot|hot shoes|hot bottom|hot shorts|hot bra|hot nylons|hot swimsuit|hot bikini|hot gals|hot dress|hot bodies|hot single girl|hot thongs|hot rods|hot girl|hot females|hot bottoms|hot super models|hot bras|hot bikinis|hot outfit|hot pants|hot latinas|hot garters|hot swimsuits|hot underwear|adult thumbs|galleries adult|fuck adult|adult pic|adult pics|adult pussy|89 adult|asian teens|teen suck|teen porno|sexy teens|teens xxx|porno teens|xxx teen|teen hunter|big tits asian|big tits|big cocks|big cunt|teen hardcore sex|hardcore sex|hardcore sex vids|anal hardcore sex|lesbian gallery|xnxx galleries|mature movie galleries|galleries pussy|teen photos|teen com|teen sexy|teen forum|teen pussy|teen videos|sexy teens|teen video|hot teen clothes|teen new|teen www|fuck sexy|slut fuck|sucking and fucking|teens fuck|lesbian fuck|fucking teens|fucking machines|fucking hard|fucking grannies|teen fucking|fuck hardcore|fucking lesbians|fuck hard)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="93">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(anime sex movies|black sex movies|adult sex movies|asian sex movies|sex movies|hardcore sex movies|world sex movies|sex movies|sex movies hot|mature sex movies|sex moviehot movies|nude movies|porn movies|movies sexycock sucking movies|porno movies|movies galleries|movies sexy|movies xxxsex teen movies|x rated movies)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="95">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(sexy nude pics|naked pics|naked pictures|nude photos|amateur pics|nude scenes|pic sex|hard pics|fuck pic|lesbian pic|pic hunter|pussy pic|teen pic|pic sexy|blowjob pics|hunter pics|hot pic|girl sexy pic|pic xxx|ass pic|pic hunter com|sex pics anal|foot pics|feet pics|high heels pics|latex pics|toe pics|gothic pics|teen photos|teen com|teen sexy|teen forum|porn pictures|teen pussy|pictures xxx|teen videos|sexy teens|teen video|hot teen clothes|teen new|xxx picture|sexy pictures|teen www)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="97">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(free porn|porn movies|adult porn movies|pictures of porn|pics porn|porn naughty|adult porn|chinese porn|hungarian porn|porn granny|69 porn|porn 89|thai porn|bride porn|89 movies porn|dutch porn|brazilian porn|porn secretary|russian porn|porn directories|ass porn|porn stockings|porn teens|sexy porn|porn girl|movies porn|young girls porn|porn fucking|housewife porn|young porn|girl on girl porn|blond porn|porn hunter|blonde porn|sexy hot porn|porn babe|pic hunter porn|nice porn|fuck porn|hot girl porn|porn gallery|ebony porno|porno lesbians|mature porno|porno hard|pictures porno|picture porno|porno babes|black porno|porno girl|porno gallery)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="99">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(sexy women|sexy nude women|sexy girls|hottest girls|gorgeous girls|busty babes|hot models|models sex|revista sex|hot sex|sex boy|cam sex|play boy sex|online sex|pictures of sex|anime sex|fuck sex|threesome sex|xxx sex|hardcore lesbian sex|sex hardcore pictures|www sex|pic sex|sex group|blonde sex|anal sex|sex teen|sex anal movies|www world sex|outdoor sex|hot pictures sex|mature sex|fucking sex|pics sex|sex hardcore pics|sex babes|videos sex|sex vids|hot sex|world of sex|sex world|movies of sex|89 movies sex|sex picture|sex pictures|russian sex|swedish sex|brazilian sex|hairy sex|pissing sex|sex secretary|sex cunt|nurse sex|galleries sex|wet sex|sex bikini|89 sex com|group sex pictures|group sex|sex granny|89 video sex|sex 89|young sex|sex movies|sex pictures|sex teens|sex film|asian sex|sex vid?o|sex naughty|asian sex clips|sex photos|video black sex|nurse sex|sex pics|girls sex|video de sex|sex links|sex search|videos de sex|xxx sex|sex pictures|adult sex pictures|adult sex|adult sex sites|photos of sex|videos of sex|pictures of sex|sex com|world sex com|video sex)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="101">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(porn video|porn video black|asian porn videos|milf video|adult video search|nude video|black videos porn|video naughty|videos porn|video xxx|naughty videos|naughty sex videos|pregnant sex videos|adult sex videos|asian sex videos|sex videos anime|amateur sex videos|hard sex video|asian sex video|anime sex video|amateur sex video|sex videos|black sex videos|adult sex video|amateur sex videos|anime sex videos|hot sex videos)\b</keyword>
+            <score>33</score>
+        </keyword>
+        <keyword id="103">
+            <enabled>TRUE</enabled>
+            <comment>To match the below mentioned keywords in webpage,and blocks the webpage if the score is greater than threshold.</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>\b(sex|sexy|sexystories|sexnews|sexuality|sexiest|porn|pornography|playmates|celebrities|centerfolds|cock|cocks|fuck|fucking|nipple|nipples|erotica|suck|sucked|moan|panty|panties|passionate|wet|tits|porn reviews|porn site reviews|adult reviews|pornsites)\b</keyword>
+            <score>20</score>
+        </keyword>
+        <keyword id="105">
+            <enabled>TRUE</enabled>
+            <comment>Text analyzer Keywords for On-line Anonymous Proxy</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>(anonymous proxy server list|anonyme proxy|anonymous proxy browsing|anonymous proxy server|anonymous proxy surf|anonymous proxy list|anonymous proxy|anonymous proxy servers|anonymity proxy|high anonymity proxy|anonymity online)</keyword>
+            <score>40</score>
+        </keyword>
+        <keyword id="107">
+            <enabled>TRUE</enabled>
+            <comment>Text analyzer Keywords for On-line Anonymous Proxy</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>(anonymous web browsing|anonymous|anonymous surfing reviews|anonymous surfing|anonymous surf|anonymous internet surfing|anonymous browsing|anonymity on the internet|browse the Web)</keyword>
+            <score>40</score>
+        </keyword>
+        <keyword id="109">
+            <enabled>TRUE</enabled>
+            <comment>Text analyzer Keywords for On-line Anonymous Proxy</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>(anonymous web surfing software|anonymous web surfer|anonymous web surfing|complete anonymous web surfing|anonymous web surfing proxy|evade url)</keyword>
+            <score>35</score>
+        </keyword>
+        <keyword id="111">
+            <enabled>TRUE</enabled>
+            <comment>Text analyzer Keywords for On-line Anonymous Proxy</comment>
+            <profiles>!BYPASS TEXT FILTER</profiles>
+            <keyword>(socks5 proxy list|sock proxy list|proxy list 8080|socks proxy list|proxy lists|fresh proxy list|http proxy list|proxy liste|proxy list)</keyword>
+            <score>35</score>
+        </keyword>
+    </keywords-filtering>
+    <ldap>
+        <enabled>TRUE</enabled>
+        <ldapsection id="113">
+            <enabled>TRUE</enabled>
+            <comment>Integrating Microsoft AD Server: 10.200.2.53 for Kerberos(SSO) based user authentication.</comment>
+            <ldapip>ad.safesquid.intranet\10.200.2.53</ldapip>
+            <ldapport>389</ldapport>
+            <ldapssl>FALSE</ldapssl>
+            <ldapmethod>NEGOTIATE_LDAP_AUTH</ldapmethod>
+            <ldaplimit>1024</ldaplimit>
+            <ldapuserfilter>&amp;(objectclass=person)</ldapuserfilter>
+            <ldapgroupfilter>(|(objectclass=posixGroup)(objectclass=groupofNames)(objectclass=group)(objectclass=groupOfUniqueNames)(objectclass=accessGroup))</ldapgroupfilter>
+            <ldapusername>administrator@safesquid.intranet</ldapusername>
+            <ldappassword>$1105061a0a40323f1a2e321b25262e3008071c173f26203a400f1e10182f19273c3b06160d3e1a083b162b230327050a163f14063c3422162b0a29370e063703263f1d1622251d3403032d152e33252b25083c0e0b15130906370b12143f180f143f203f061c292e15333d300f0d1c1c3e201f2f3c363a3c2f131e1a162b27021a0a252d35300b1c26291b0f314008100d2e3d3439100721193a2526321a0b3e1632142b26123e2b360a3d41</ldappassword>
+            <ldapbasedn>dc=safesquid,dc=intranet</ldapbasedn>
+            <ldapdomain>safesquid.intranet</ldapdomain>
+            <ldaploginattr>UserPrincipalName,sAMAccountname,uid</ldaploginattr>
+            <ldapgroupid>member,memberof,memberuid</ldapgroupid>
+        </ldapsection>
+    </ldap>
+    <limits>
+        <enabled>FALSE</enabled>
+        <limit id="115">
+            <enabled>FALSE</enabled>
+            <comment>Accessing the internet with speed of 500kbps</comment>
+            <profiles>RESTRICTED DOWNLOAD TRANSFER RATES</profiles>
+            <action>ALLOW</action>
+            <maxdownloadbytes>0</maxdownloadbytes>
+            <maxuploadbytes>0</maxuploadbytes>
+            <maxrequests>0</maxrequests>
+            <downloadrate>100K</downloadrate>
+            <flags>PERREQUEST</flags>
+        </limit>
+        <limit id="117">
+            <enabled>FALSE</enabled>
+            <comment>Download limit 10Mb</comment>
+            <profiles>RESTRICTED DOWNLOAD TRANSFER LIMITS</profiles>
+            <action>ALLOW</action>
+            <maxdownloadbytes>10M</maxdownloadbytes>
+            <maxuploadbytes>0</maxuploadbytes>
+            <maxrequests>0</maxrequests>
+            <downloadrate>0</downloadrate>
+            <flags>PERREQUEST</flags>
+        </limit>
+        <limit id="119">
+            <enabled>FALSE</enabled>
+            <comment>Upload limit 10Mb</comment>
+            <profiles>RESTRICTED UPLOAD TRANSFER RATES</profiles>
+            <action>ALLOW</action>
+            <maxdownloadbytes>0</maxdownloadbytes>
+            <maxuploadbytes>10M</maxuploadbytes>
+            <maxrequests>0</maxrequests>
+            <downloadrate>0</downloadrate>
+            <flags>PERREQUEST</flags>
+        </limit>
+    </limits>
+    <network>
+        <listen id="121">
+            <enabled>FALSE</enabled>
+            <comment>Additional listen on 8081</comment>
+            <port>8081</port>
+            <ip>*</ip>
+        </listen>
+        <listen id="123">
+            <enabled>FALSE</enabled>
+            <comment>We require SSL inspection for HTTPS traffic transparently redirected to port 8443.</comment>
+            <port>8443</port>
+            <listen_flag>SSL_TRANSPARENT</listen_flag>
+        </listen>
+        <listen id="125">
+            <enabled>FALSE</enabled>
+            <comment>Listen on IPv6</comment>
+            <port>8082</port>
+            <ip>::1</ip>
+        </listen>
+        <interface id="127">
+            <enabled>FALSE</enabled>
+            <comment>For connections with profile &quot;ALTERNATE OUTBOUND IP&quot;, route outgoing traffic via secondary ISP using IP &quot;192.168.1.200&quot;</comment>
+            <profiles>ALTERNATE OUTBOUND IP</profiles>
+            <ip>192.168.1.200</ip>
+        </interface>
+    </network>
+    <prefetch>
+        <enabled>FALSE</enabled>
+        <threads>8</threads>
+        <queuesize>64</queuesize>
+        <hostlimit>16</hostlimit>
+    </prefetch>
+    <profiles>
+        <defaults id="129">
+            <enabled>TRUE</enabled>
+            <comment>We permit only minimal content access for Advertisements &amp; Pop-Ups, unclassified websites to prevent any Phishing attack</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <web_categories>Advertisements &amp; Pop-Ups,Unknown</web_categories>
+            <action>INHERIT</action>
+            <add_profiles>MINIMAL CONTENT ACCESS</add_profiles>
+        </defaults>
+        <defaults id="131">
+            <enabled>TRUE</enabled>
+            <comment>Prevent Login to Cyber-slacking Sites</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <web_categories>Forums &amp; Newsgroups,Instant Messaging,News,Social Networking</web_categories>
+            <action>INHERIT</action>
+            <add_profiles>READ ONLY</add_profiles>
+        </defaults>
+        <defaults id="133">
+            <enabled>TRUE</enabled>
+            <comment>We want to bypass user authentication for applications that do not supports proxy authentication</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Requires Authentication Bypass</req_types>
+            <action>INHERIT</action>
+            <add_profiles>BYPASS AUTHENTICATION</add_profiles>
+        </defaults>
+        <defaults id="135">
+            <enabled>TRUE</enabled>
+            <comment>We enforce SafeSearch for users accessing Google Search.</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <req_types>Google UnSafe Search</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE GOOGLE SAFE SEARCH</add_profiles>
+        </defaults>
+        <defaults id="137">
+            <enabled>TRUE</enabled>
+            <comment>We enforce SafeSearch for users accessing Yahoo Search.</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Yahoo UnSafe Search</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE YAHOO SAFE SEARCH</add_profiles>
+        </defaults>
+        <defaults id="139">
+            <enabled>TRUE</enabled>
+            <comment>We enforce SafeSearch for users accessing Bing Search.</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Bing UnSafe Search</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE BING SAFE SEARCH</add_profiles>
+        </defaults>
+        <defaults id="141">
+            <enabled>TRUE</enabled>
+            <comment>We enforce SafeSearch for users accessing duckduckgo Search.</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>DuckDuckGo UnSafe Search</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE DUCKDUCKGO SAFE SEARCH</add_profiles>
+        </defaults>
+        <defaults id="143">
+            <enabled>TRUE</enabled>
+            <comment>We enforce Restrict mode for users accessing YouTube.</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Youtube</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE YOUTUBE RESTRICTED MODE,FULL CONTENT ACCESS</add_profiles>
+        </defaults>
+        <defaults id="145">
+            <enabled>TRUE</enabled>
+            <comment>We forbid use of personal Google accounts, and allow use of only our Corporate Google account</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <req_types>Google</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE CORPORATE GOOGLE ACCOUNTS</add_profiles>
+        </defaults>
+        <defaults id="147">
+            <enabled>FALSE</enabled>
+            <comment>We forbid use of personal Google accounts, and allow use of only our Corporate Google account</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <req_types>Microsoft SSO</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE CORPORTATE MICROSOFT OFFICE 365 ACCOUNTS</add_profiles>
+        </defaults>
+        <defaults id="149">
+            <enabled>TRUE</enabled>
+            <comment>We bypass HTTPS Inspection for applications that work only when SSL Inspection is disabled</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Bypass HTTPS Inspection</req_types>
+            <action>INHERIT</action>
+            <add_profiles>BYPASS SSL INSPECTION</add_profiles>
+        </defaults>
+        <defaults id="151">
+            <enabled>TRUE</enabled>
+            <comment>We Permit access to our Intranet Web Sites that use self-signed certificates</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <web_categories>Intranet Sites</web_categories>
+            <action>ALLOW</action>
+            <add_profiles>ALLOW SELF SIGNED SSL CERTIFICATE</add_profiles>
+            <remove_profiles>READ ONLY</remove_profiles>
+        </defaults>
+        <defaults id="153">
+            <enabled>TRUE</enabled>
+            <comment>We prohibit all youtube videos</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <web_categories>Youtube * Video</web_categories>
+            <action>DO_NOT_BYPASS</action>
+        </defaults>
+        <defaults id="155">
+            <enabled>TRUE</enabled>
+            <comment>We allow all youtube videos which are educational content</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <web_categories>Youtube Education Video</web_categories>
+            <action>ALLOW</action>
+        </defaults>
+        <defaults id="157">
+            <enabled>TRUE</enabled>
+            <comment>Allow YouTube SafeSquid Channel</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>YouTube - SafeSquid Channel</req_types>
+            <action>ALLOW</action>
+        </defaults>
+        <defaults id="159">
+            <enabled>TRUE</enabled>
+            <comment>We prohibit downloads of exe file for all users</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>!Allow EXE Download</req_types>
+            <res_types>WINDOWS EXECUTABLE FIELS</res_types>
+            <action>DO_NOT_BYPASS</action>
+            <add_profiles>Response_Block</add_profiles>
+        </defaults>
+        <profile id="161">
+            <enabled>TRUE</enabled>
+            <comment>Facilitate seamless access for websites needed for daily business</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Business Necessities,ChatGPT,Cloudflare,OpenAI,Youtube</req_types>
+            <action>INHERIT</action>
+            <add_profiles>FULL CONTENT ACCESS</add_profiles>
+            <remove_profiles>MINIMAL CONTENT ACCESS,READ ONLY</remove_profiles>
+        </profile>
+        <profile id="163">
+            <enabled>TRUE</enabled>
+            <comment>We want to scan for all Post data send to wetransfer</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Adobe IO</req_types>
+            <action>INHERIT</action>
+            <add_profiles>ENFORCE CLAMAV SCANNING</add_profiles>
+        </profile>
+        <profile id="165">
+            <enabled>FALSE</enabled>
+            <comment>Block everything else apart from web contents</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <res_types>!Text Content,DOWNLOADS</res_types>
+            <action>DO_NOT_BYPASS</action>
+            <add_profiles>BLOCK DOWNLOADS</add_profiles>
+        </profile>
+        <profile id="167">
+            <enabled>TRUE</enabled>
+            <comment>Allow logins for Facebook</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Facebook</req_types>
+            <action>ALLOW</action>
+            <add_profiles>FULL CONTENT ACCESS</add_profiles>
+            <remove_profiles>READ ONLY</remove_profiles>
+        </profile>
+        <profile id="169">
+            <enabled>TRUE</enabled>
+            <comment>Block facebook gaming</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Facebook Gaming</req_types>
+            <action>DO_NOT_BYPASS</action>
+        </profile>
+        <profile id="2609">
+            <enabled>TRUE</enabled>
+            <comment>Enforce CSP Sandbox for Homograph Domains</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Homograph domain</req_types>
+            <action>INHERIT</action>
+            <add_profiles>CSP SANDBOX</add_profiles>
+            <remove_profiles>MINIMAL CONTENT ACCESS</remove_profiles>
+        </profile>
+    </profiles>
+    <redirect>
+        <enabled>TRUE</enabled>
+        <redirection id="171">
+            <enabled>TRUE</enabled>
+            <comment>Redirect the bing unsafe mode to safe mode.</comment>
+            <profiles>ENFORCE BING SAFE SEARCH</profiles>
+            <url>(.*)</url>
+            <redirect>$1&amp;adlt=strict</redirect>
+            <port>0</port>
+            <send302>FALSE</send302>
+            <which>BOTH</which>
+        </redirection>
+        <redirection id="173">
+            <enabled>TRUE</enabled>
+            <comment>Enforces the google safe search by Redirect unsafe google search request to safe google search request.</comment>
+            <profiles>ENFORCE GOOGLE SAFE SEARCH,ENFORCE YOUTUBE SAFESEARCH</profiles>
+            <url>(.*)</url>
+            <redirect>$1&amp;safe=active</redirect>
+            <port>0</port>
+            <send302>FALSE</send302>
+            <which>BOTH</which>
+        </redirection>
+        <redirection id="175">
+            <enabled>TRUE</enabled>
+            <comment>This entry enforces the Yahoo safe search by Redirect unsafe google search request to safe Yahoo search request.</comment>
+            <profiles>ENFORCE YAHOO SAFE SEARCH</profiles>
+            <url>(.*)</url>
+            <redirect>$1&amp;vm=r</redirect>
+            <port>0</port>
+            <send302>FALSE</send302>
+            <which>BOTH</which>
+        </redirection>
+        <redirection id="177">
+            <enabled>TRUE</enabled>
+            <comment>This entry enforces the DuckDuckGo Safe Searching Experience</comment>
+            <profiles>ENFORCE DUCKDUCKGO SAFE SEARCH</profiles>
+            <url>(.*)</url>
+            <redirect>$1&amp;kp=1</redirect>
+            <port>0</port>
+            <send302>FALSE</send302>
+            <which>BOTH</which>
+        </redirection>
+    </redirect>
+    <reqProfiles>
+        <enabled>TRUE</enabled>
+        <request_hosts id="179">
+            <enabled>TRUE</enabled>
+            <comment>Malicious websites reported by our security apparatus</comment>
+            <hosts>yahoo.com</hosts>
+            <add_req_types>Security Threat</add_req_types>
+        </request_hosts>
+        <request_hosts id="181">
+            <enabled>TRUE</enabled>
+            <comment>Web Sites needed for daily business</comment>
+            <hosts>alpha.surebrowse.com&#x0A;bankease.com&#x0A;adobe.com</hosts>
+            <add_req_types>Business Necessities</add_req_types>
+        </request_hosts>
+        <request_hosts id="183">
+            <enabled>TRUE</enabled>
+            <hosts>login.windows.net&#x0A;login.microsoft.com&#x0A;login.microsoftonline.com</hosts>
+            <add_req_types>Microsoft SSO</add_req_types>
+        </request_hosts>
+        <request_hosts id="185">
+            <enabled>TRUE</enabled>
+            <comment>YouTube Channel for SafeSquid.</comment>
+            <hosts>www.youtube.com/watch?v=Mg7aJdnbY48</hosts>
+            <where>Both</where>
+            <add_req_types>YouTube - SafeSquid Channel</add_req_types>
+        </request_hosts>
+        <request_hosts id="187">
+            <enabled>TRUE</enabled>
+            <hosts>code.vsstudio.com</hosts>
+            <where>Both</where>
+            <add_req_types>Allow EXE Download</add_req_types>
+        </request_hosts>
+        <request_hosts id="189">
+            <enabled>TRUE</enabled>
+            <comment>Adobe IO requests</comment>
+            <hosts>adobe.io</hosts>
+            <add_req_types>Adobe IO</add_req_types>
+        </request_hosts>
+        <request_hosts id="191">
+            <enabled>TRUE</enabled>
+            <comment>chatgpt</comment>
+            <hosts>chatgpt.com</hosts>
+            <add_req_types>ChatGPT</add_req_types>
+        </request_hosts>
+        <request_hosts id="193">
+            <enabled>TRUE</enabled>
+            <comment>Facebook Gaming</comment>
+            <hosts>www.facebook.com/gaming&#x0A;</hosts>
+            <where>Both</where>
+            <add_req_types>Facebook Gaming</add_req_types>
+            <dnsbl_check>FALSE</dnsbl_check>
+        </request_hosts>
+        <request_hosts id="195">
+            <enabled>TRUE</enabled>
+            <comment>Facebook&#x0A;</comment>
+            <hosts>facebook.com&#x0A;</hosts>
+            <where>Both</where>
+            <add_req_types>Facebook</add_req_types>
+            <dnsbl_check>FALSE</dnsbl_check>
+        </request_hosts>
+        <request_hosts id="197">
+            <enabled>TRUE</enabled>
+            <comment>DNS Auditing Website</comment>
+            <hosts>swgdnsaudit.com</hosts>
+            <where>Both</where>
+            <add_req_types>DNS Audit</add_req_types>
+            <dnsbl_check>TRUE</dnsbl_check>
+        </request_hosts>
+        <request_hosts id="2607">
+            <enabled>TRUE</enabled>
+            <comment> homograph domain</comment>
+            <hosts>copilot.xn--microsof-epb.com</hosts>
+            <where>Both</where>
+            <add_req_types>Homograph domain</add_req_types>
+            <dnsbl_check>TRUE</dnsbl_check>
+        </request_hosts>
+        <request_section id="199">
+            <enabled>TRUE</enabled>
+            <comment>Less than 1MB File uploads</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>All Posts</req_types>
+            <postdata_min_length>1</postdata_min_length>
+            <postdata_max_length>1MB</postdata_max_length>
+            <smart_tld>TRUE</smart_tld>
+            <add_req_types>SMALL UPLOADS</add_req_types>
+        </request_section>
+        <request_section id="201">
+            <enabled>TRUE</enabled>
+            <comment>1MB to 10MB File uploads</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>All Posts</req_types>
+            <postdata_min_length>1MB</postdata_min_length>
+            <postdata_max_length>10MB</postdata_max_length>
+            <smart_tld>TRUE</smart_tld>
+            <add_req_types>MEDIUM UPLOADS</add_req_types>
+        </request_section>
+        <request_section id="203">
+            <enabled>TRUE</enabled>
+            <comment>10MB to 100MB File uploads</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>All Uploads</req_types>
+            <postdata_min_length>10MB</postdata_min_length>
+            <postdata_max_length>100MB</postdata_max_length>
+            <smart_tld>TRUE</smart_tld>
+            <add_req_types>LARGE UPLOADS</add_req_types>
+        </request_section>
+        <request_section id="205">
+            <enabled>TRUE</enabled>
+            <comment>Larger than 100MB File uploads</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>All Posts</req_types>
+            <postdata_min_length>100MB</postdata_min_length>
+            <postdata_max_length>0</postdata_max_length>
+            <smart_tld>TRUE</smart_tld>
+            <add_req_types>VERY LARGE UPLOADS</add_req_types>
+        </request_section>
+        <request_section id="207">
+            <enabled>TRUE</enabled>
+            <comment>Executable files</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <content_types>application/x-msdownload|application/x-dosexec</content_types>
+            <postdata_min_length>0</postdata_min_length>
+            <postdata_max_length>0</postdata_max_length>
+            <smart_tld>FALSE</smart_tld>
+            <add_req_types>EXE Files</add_req_types>
+        </request_section>
+        <request_section id="209">
+            <enabled>FALSE</enabled>
+            <comment>All PDF Files</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <content_types>application/pdf</content_types>
+            <postdata_min_length>0</postdata_min_length>
+            <postdata_max_length>0</postdata_max_length>
+            <smart_tld>FALSE</smart_tld>
+            <add_req_types>PDF Files</add_req_types>
+        </request_section>
+        <request_section id="211">
+            <enabled>TRUE</enabled>
+            <comment>This entry ...</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <req_types>Gmail</req_types>
+            <postdata_min_length>0</postdata_min_length>
+            <postdata_max_length>0</postdata_max_length>
+            <smart_tld>FALSE</smart_tld>
+            <add_req_types>Pratik</add_req_types>
+        </request_section>
+    </reqProfiles>
+    <respProfiles>
+        <enabled>TRUE</enabled>
+        <response_section id="213">
+            <enabled>TRUE</enabled>
+            <comment>Responses that browsers would generally require user to save to the desktop as some file</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <responseheader>Content-Disposition:\s*attachment</responseheader>
+            <add_res_types>DOWNLOADS</add_res_types>
+        </response_section>
+        <response_section id="215">
+            <enabled>TRUE</enabled>
+            <comment>Text Based content</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <mime>text/.*</mime>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>Text Content</add_res_types>
+        </response_section>
+        <response_section id="217">
+            <enabled>TRUE</enabled>
+            <comment>All Textual Contents [Few Content Specified in the Below Content-Type Field are used by Major web Applications to send status etc information to communicate with the Client-Side JS ]</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <mime>css,font,html,image/.*,javascript,json,text,text/.*,text/xml,x-protobuf</mime>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>WEB CONTENTS</add_res_types>
+        </response_section>
+        <response_section id="219">
+            <enabled>TRUE</enabled>
+            <comment>Image Contents</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <mime>image/.*</mime>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>IMAGE CONTENT</add_res_types>
+        </response_section>
+        <response_section id="221">
+            <enabled>TRUE</enabled>
+            <comment>All audio files</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <mime>audio/.*</mime>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>AUDIO CONTENT</add_res_types>
+        </response_section>
+        <response_section id="223">
+            <enabled>TRUE</enabled>
+            <comment>All video content</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <mime>video/.*</mime>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>VIDEO CONTENT</add_res_types>
+        </response_section>
+        <response_section id="225">
+            <enabled>TRUE</enabled>
+            <comment>Windows Executable Files</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <file_extension>\.bat$|\.exe$</file_extension>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>WINDOWS EXECUTABLE FIELS</add_res_types>
+        </response_section>
+        <response_section id="227">
+            <enabled>TRUE</enabled>
+            <comment>All audio and video content</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <res_types>AUDIO CONTENT,VIDEO CONTENT</res_types>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>ALL MULTIMEDIA CONTENT</add_res_types>
+        </response_section>
+        <response_section id="229">
+            <enabled>TRUE</enabled>
+            <comment>Office Documents</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <mime>application/msword|vnd.ms-word.*,application/oda,application/oebps-package\+xml,application/vnd.hzn-3d-crossword,application/vnd.kde.k.*,application/vnd.ms-excel.*,application/vnd.ms-officetheme,application/vnd.ms-powerpoint.*,application/vnd.oasis.opendocument.chart.*,application/vnd.oasis.opendocument.formula.*,application/vnd.oasis.opendocument.graphics.*,application/vnd.oasis.opendocument.image.*,application/vnd.oasis.opendocument.presentation.*,application/vnd.oasis.opendocument.spreadsheet.*,application/vnd.oasis.opendocument.text.*,application/vnd.openofficeorg.extension,application/vnd.openxmlformats-officedocument.*,application/vnd.stardivision.calc,application/vnd.stardivision.draw,application/vnd.stardivision.impress,application/vnd.stardivision.math,application/vnd.stardivision.writer.*,application/vnd.sun.xml.calc.*,application/vnd.sun.xml.draw.*,application/vnd.sun.xml.impress.*,application/vnd.sun.xml.math.*,application/vnd.sun.xml.writer.*,application/vnd.wordperfect,application/x-abiword,application/x-gnumeric,application/x-msbinder,application/x-mswrite</mime>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>ALL OFFICE DOCUMENT TYPES</add_res_types>
+        </response_section>
+        <response_section id="231">
+            <enabled>FALSE</enabled>
+            <comment>All the content that is not rendered on the WebBrowser.&#x0A;Whereas PDF files are displayed on web browsers but that is browsers feature to download and work as PDF Viewer.The Browser first downloads the PDF file and then it will render it directly [Depends on the type of Ajax Call OR Response]</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <res_types>!ALL MULTIMEDIA CONTENT,!IMAGE CONTENT,!WEB CONTENTS</res_types>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>1</content_min_length>
+            <content_max_length>0</content_max_length>
+            <responseheader>200 |206 </responseheader>
+            <add_res_types>NON BROWSER RENDERING CONTENT</add_res_types>
+        </response_section>
+        <response_section id="233">
+            <enabled>TRUE</enabled>
+            <comment>All compressed files</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <file_extension>\.ace$|\.arc$|\.arj$|\.b64$|\.bhx$|\.cab$|\.gz$|\.gzip$|\.hqx$|\.iso$|\.jar$|\.lzh$|\.mim$|\.rar$|\tar$|\taz$|\.tgz$|\.tz$|\.uu$|\.uue$|\.xxe$|\.z$|\.zip$</file_extension>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <add_res_types>ALL COMPRESSED FILES</add_res_types>
+        </response_section>
+        <response_section id="235">
+            <enabled>TRUE</enabled>
+            <comment>All web response which has Content Security Policy.</comment>
+            <profile_tracing>FALSE</profile_tracing>
+            <transfer_encoding_chunk>ANY</transfer_encoding_chunk>
+            <multipart_byterange>ANY</multipart_byterange>
+            <content_min_length>0</content_min_length>
+            <content_max_length>0</content_max_length>
+            <responseheader>content-security-policy:.*</responseheader>
+            <add_res_types>HAS CONTENT SECURITY POLICY</add_res_types>
+        </response_section>
+    </respProfiles>
+    <sqscan>
+        <enabled>TRUE</enabled>
+        <SqScan id="241">
+            <enabled>TRUE</enabled>
+            <comment>AV Scan</comment>
+            <scan_results>STANDARD</scan_results>
+            <threat_types>VIRUS,SPYWARE,ADWARE,SPAM,ROOTKIT,DIALER,MALICIOUS_APP,ARCHBOMB</threat_types>
+        </SqScan>
+    </sqscan>
+    <sslcert>
+        <enabled>TRUE</enabled>
+        <https_scan id="243">
+            <enabled>TRUE</enabled>
+            <comment>Bypass inspection of SSL/TLS encrypted traffic.&#x0A;Tunnel Non-Browser applications to remote web servers.&#x0A;Facilitate use of Client side SSL certificates for Digital Signature.</comment>
+            <profiles>BYPASS SSL INSPECTION</profiles>
+            <deepscan>FALSE</deepscan>
+            <block_no_cert>TRUE</block_no_cert>
+            <block_err_level>X509_V_OK</block_err_level>
+            <block_domain_mismatch>TRUE</block_domain_mismatch>
+        </https_scan>
+        <https_scan id="245">
+            <enabled>TRUE</enabled>
+            <comment>Allow traffic to websites with self-signed certificates.</comment>
+            <profiles>ALLOW SELF SIGNED SSL CERTIFICATE</profiles>
+            <deepscan>TRUE</deepscan>
+            <block_no_cert>TRUE</block_no_cert>
+            <block_err_level>X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT</block_err_level>
+            <block_domain_mismatch>FALSE</block_domain_mismatch>
+        </https_scan>
+        <https_scan id="247">
+            <enabled>TRUE</enabled>
+            <comment>Bypass SSL errors for incomplete certificate chain due to missing issuer certificates.</comment>
+            <profiles>BYPASS NO ISSUER CERT LOCALLY ERROR</profiles>
+            <deepscan>TRUE</deepscan>
+            <block_no_cert>TRUE</block_no_cert>
+            <block_err_level>X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY</block_err_level>
+            <block_domain_mismatch>TRUE</block_domain_mismatch>
+        </https_scan>
+        <https_scan id="249">
+            <enabled>TRUE</enabled>
+            <comment>Our Default policy for HTTPS Inspection applies to all connections that do not match the above profiles</comment>
+            <deepscan>TRUE</deepscan>
+            <block_no_cert>TRUE</block_no_cert>
+            <block_err_level>X509_V_OK</block_err_level>
+            <block_domain_mismatch>TRUE</block_domain_mismatch>
+        </https_scan>
+    </sslcert>
+    <ssqore>
+        <enabled>TRUE</enabled>
+        <heuristic>FALSE</heuristic>
+    </ssqore>
+    <templates>
+        <template id="251">
+            <enabled>TRUE</enabled>
+            <comment>Default template displayed , when the there is no access to internet or any websites are blocked.</comment>
+            <name>blocked</name>
+            <file>blocked.html</file>
+            <mime>text/html</mime>
+            <code>403</code>
+            <type>FILE</type>
+            <parsable>TRUE</parsable>
+        </template>
+        <template id="253">
+            <enabled>FALSE</enabled>
+            <comment>Default template displayed , when the there is no access to internet or any websites are blocked.</comment>
+            <name>error</name>
+            <file>error.html</file>
+            <mime>text/html</mime>
+            <code>200</code>
+            <type>FILE</type>
+            <parsable>TRUE</parsable>
+        </template>
+    </templates>
+    <timeProfiles>
+        <enabled>FALSE</enabled>
+        <time_section id="255">
+            <enabled>FALSE</enabled>
+            <comment>Our Office Timing is Monday to Saturday 9.30AM to 5.30PM</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <tmonth active="true">JANUARY,DECEMBER</tmonth>
+            <tday active="true">1,31</tday>
+            <tweekday active="true">MONDAY,SATURDAY</tweekday>
+            <thour active="true">09,17</thour>
+            <tminute active="true">30,30</tminute>
+            <matchmode>ALLRANGES</matchmode>
+            <add_time_profiles>OFFICE WORKING HOURS</add_time_profiles>
+        </time_section>
+        <time_section id="257">
+            <enabled>FALSE</enabled>
+            <comment>Our Lunch Timings are 1:00 PM to 2:00 PM</comment>
+            <profile_tracing>TRUE</profile_tracing>
+            <tmonth active="true">JANUARY,DECEMBER</tmonth>
+            <tday active="true">1,31</tday>
+            <tweekday active="true">MONDAY,SATURDAY</tweekday>
+            <thour active="true">13,14</thour>
+            <tminute active="true">00,00</tminute>
+            <matchmode>ALLRANGES</matchmode>
+            <add_time_profiles>LUNCH</add_time_profiles>
+            <remove_time_profiles>OFFICE WORKING HOURS</remove_time_profiles>
+        </time_section>
+    </timeProfiles>
+    <wccp>
+        <enabled>FALSE</enabled>
+        <WCCP id="259">
+            <enabled>FALSE</enabled>
+            <comment>Transparently redirect traffic to WCCP router.</comment>
+            <wccp_version>WCCPV2</wccp_version>
+            <router_ip>192.168.250.194</router_ip>
+            <traffic_capture>HTTP</traffic_capture>
+            <service_type>WELLKNOWN</service_type>
+            <service_id>99</service_id>
+            <service_name>SafeSquid</service_name>
+            <security>NOSECURITY</security>
+            <forward_method>GRE</forward_method>
+            <assignment_method>MASK</assignment_method>
+            <packet_return_method>GRE</packet_return_method>
+            <network_protocol>TCP</network_protocol>
+            <webcache_ip>192.168.20.1</webcache_ip>
+        </WCCP>
+    </wccp>
+    <rewrite>
+        <enabled>TRUE</enabled>
+        <rewrite id="237">
+            <enabled>TRUE</enabled>
+            <comment>Request for png image instead of avif, required for image filter for image scanning. </comment>
+            <profiles>!BYPASS IMAGE FILTER</profiles>
+            <pattern>Accept:(.*)(avif)(.*)</pattern>
+            <replace>Accept:$1png;q=0.5$3</replace>
+            <which>CLIENT</which>
+        </rewrite>
+        <rewrite id="239">
+            <enabled>TRUE</enabled>
+            <comment>Request for jpg image instead of webp, required for image filter for image scanning. </comment>
+            <profiles>!BYPASS IMAGE FILTER</profiles>
+            <pattern>Accept:(.*)(webp)(.*)</pattern>
+            <replace>Accept:$1jpg;q=0.5$3</replace>
+            <which>CLIENT</which>
+        </rewrite>
+    </rewrite>
+</safesquid>
