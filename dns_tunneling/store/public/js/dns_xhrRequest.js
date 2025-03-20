@@ -63,7 +63,7 @@ function sendRequest(url) {
     xhr.open("GET", url, true);
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
-            console.log(`Request succeeded:`, xhr.responseText);
+            // console.log(`Request succeeded:`, xhr.responseText);
         } else {
             console.error(`Request failed with status ${xhr.status}`);
         }

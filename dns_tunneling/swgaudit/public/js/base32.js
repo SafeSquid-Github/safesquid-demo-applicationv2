@@ -31,7 +31,7 @@ function encode_string (input) {
 
   const textEncoder = new TextEncoder(); // To convert a string to bytes
   const encoded = base32Encode(textEncoder.encode(input));
-  console.log(encoded);
+  // console.log(encoded);
   return encoded;
 }
 

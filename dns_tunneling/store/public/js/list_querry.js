@@ -5,7 +5,7 @@ xmlhttp.onload = function () {
     let jsonData = JSON.parse(this.responseText);
 
     // Debug: Log the raw JSON data to inspect its structure
-    console.log("JSON Data:", jsonData);
+    // console.log("JSON Data:", jsonData);
 
     // Add sessionId to each item by extracting it from the query
     jsonData.forEach(function (item) {
@@ -25,7 +25,7 @@ xmlhttp.onload = function () {
     let groupedData = groupDataBySessionId(jsonData);
 
     // Debug: Log the grouped data
-    console.log("Grouped Data by sessionId:", groupedData);
+    // console.log("Grouped Data by sessionId:", groupedData);
 
     // Get a reference to the container where the session boxes will be displayed
     var container = document.getElementById("sessionContainer");
@@ -40,7 +40,7 @@ xmlhttp.onload = function () {
         });
 
         // Debug: Log sorted session data for this sessionId
-        console.log(`Sorted Data for Session ${sessionId}:`, sessionData);
+        // console.log(`Sorted Data for Session ${sessionId}:`, sessionData);
 
         // Create a new container (box) for the sessionId
         var sessionBox = document.createElement('div');
@@ -81,7 +81,7 @@ xmlhttp.send();
 // Helper function to extract sessionId from query
 function extractSessionId(query) {
     // Use regex to extract sessionId (e.g., extract "abc123" from "abc123.1.somequery.hack.com")
-    console.log(query);
+    // console.log(query);
     let match = query.match(/^([a-zA-Z0-9\-]+)\./);
     return match ? match[1] : null; // Return sessionId or null if not found
 }
@@ -108,14 +108,14 @@ function rebuildSessionQuery(sessionData) {
     });
 
     // Debug: Log the sorted session data
-    console.log("Rebuilding query with sorted chunks:", sessionData);
+    // console.log("Rebuilding query with sorted chunks:", sessionData);
     
     // Rebuild the full query by concatenating the chunks, removing sessionId and chunk number
     var assembled = sessionData.map(function (item) {
         return item.data
     }).join(''); // Use a space or newline as needed
 
-    console.log("Assembled chunks:", assembled);
+    // console.log("Assembled chunks:", assembled);
     
     var decoded = decoded_string(assembled);
     return decoded;
@@ -123,12 +123,12 @@ function rebuildSessionQuery(sessionData) {
 
 // Function to decode Base32
 function decoded_string(encoded_query) {
-    console.log("Decoding input:", encoded_query);
+    // console.log("Decoding input:", encoded_query);
     try {
         const decoded = base32Decode(encoded_query); // Decodes to Uint8Array
         const textDecoder = new TextDecoder(); // Converts Uint8Array to string
         const decodedString = textDecoder.decode(decoded);
-        console.log("Decoded result:", decodedString);
+        // console.log("Decoded result:", decodedString);
         return decodedString;
     } catch (error) {
         console.error("Decoding failed for:", encoded_query, "Error:", error.message);
