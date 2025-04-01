@@ -13,7 +13,7 @@ xmlhttp.onload = function () {
         if (!item.sessionId) {
             console.warn("Failed to extract sessionId for item:", item);
         }
-        let data = item.query.replace(".swgaudit.com", ""); // Remove ".hack.com"
+        let data = item.query.replace(".swgaudit.com", ""); // Remove ".swgaudit.com"
 
         // Remove sessionId and chunk number part from the subdomain (if any)
         item.data = data.replace(/^[a-zA-Z0-9\-]+\.\d+\./, ""); // Remove sessionId and chunk
@@ -75,7 +75,7 @@ xmlhttp.send();
 
 // Helper function to extract sessionId from query
 function extractSessionId(query) {
-    // Use regex to extract sessionId (e.g., extract "abc123" from "abc123.1.somequery.hack.com")
+    // Use regex to extract sessionId (e.g., extract "abc123" from "abc123.1.somequery.swgaudit.com")
     // console.log(query);
     let match = query.match(/^([a-zA-Z0-9\-]+)\./);
     return match ? match[1] : null; // Return sessionId or null if not found
