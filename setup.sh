@@ -321,6 +321,7 @@ MAIN ()
 
     pm2 start ./ecosystem.config.js --env development --watch
     pm2 save
+	pm2 startup
 
     echo "Setup completed successfully."
 }
