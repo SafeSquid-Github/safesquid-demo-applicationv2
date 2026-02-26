@@ -184,10 +184,10 @@ module.exports = {
             pre_start: "mkdir -p logs && npm install",
         },
         {
-            name: "swgaudit",
+            name: "dnstunnelnew",
             tag: "DNS Tunneling",
             namespace: "dns_tunneling",
-            cwd: "./dns_tunneling/swgaudit",
+            cwd: "./dns_tunneling/dnstunnelnew",
             script: "./app.js",
             out_file: "./logs/out.log", // Standard output
             error_file: "./logs/error.log", // Error logs
@@ -199,13 +199,13 @@ module.exports = {
                 NODE_ENV: "development",
                 PORT: 3007,
                 DNS_LOG_FILE: "/var/log/named/query.log",
-                DOMAIN: 'swgaudit.com',
+                DOMAIN: 'dnstunnelnew.com',
             },
             env_production: {
                 NODE_ENV: "production",
                 PORT: 3007,
                 DNS_LOG_FILE: "/var/log/named/query.log",
-                DOMAIN: 'swgaudit.com',
+                DOMAIN: 'dnstunnelnew.com',
             },
             pre_start: "mkdir -p logs && npm install",
         },
